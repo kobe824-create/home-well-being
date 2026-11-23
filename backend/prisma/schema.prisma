@@ -1,0 +1,204 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  ADMIN
+  EMPLOYEE
+  PROVIDER
+  CLIENT
+}
+
+model User {
+  id           String           @id @default(uuid()) @db.Uuid
+  email        String           @unique @db.VarChar(254)
+  passwordHash String           @map("password_hash")
+  fullName     String           @map("full_name") @db.VarChar(120)
+  phone        String?          @db.VarChar(24)
+  role         UserRole         @default(CLIENT)
+  isActive     Boolean          @default(true) @map("is_active")
+  createdAt    DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+  requests     ServiceRequest[] @relation("ClientRequests")
+  assignments  ServiceRequest[] @relation("EmployeeAssignments")
+  attendance   WorkAttendance[]
+  reports      ServiceReport[]
+  customerFeedback CustomerFeedback[]
+  leaveRequests EmployeeLeaveRequest[] @relation("LeaveEmployee")
+  leaveDecisions EmployeeLeaveRequest[] @relation("LeaveReviewer")
+  providerApplication ProviderApplication?
+
+  @@index([role, isActive])
+  @@map("users")
+}
+
+model ServiceRequest {
+  id                     String              @id @default(uuid()) @db.Uuid
+  reference              String              @unique @db.VarChar(24)
+  fullName               String              @map("full_name") @db.VarChar(100)
+  phone                  String              @db.VarChar(24)
+  email                  String?             @db.VarChar(254)
+  preferredContact       String              @map("preferred_contact") @db.VarChar(16)
+  service                String              @db.VarChar(32)
+  neighborhood           String              @db.VarChar(100)
+  requestedDate          DateTime            @map("requested_date") @db.Date
+  startTime              DateTime            @map("start_time") @db.Time(6)
+  durationHours          Int                 @map("duration_hours")
+  recurring              Boolean             @default(false)
+  serviceDetails         Json                @default("{}") @map("service_details") @db.JsonB
+  contactConsent         Boolean             @default(false) @map("contact_consent")
+  status                 String              @default("New request") @db.VarChar(64)
+  assignedProviderId     String?             @map("assigned_provider_id") @db.Uuid
+  assignedProvider       ProviderApplication? @relation(fields: [assignedProviderId], references: [id], onDelete: SetNull)
+  assignedEmployeeId     String?             @map("assigned_employee_id") @db.Uuid
+  assignedEmployee       User?               @relation("EmployeeAssignments", fields: [assignedEmployeeId], references: [id], onDelete: SetNull)
+  employeeResponse       String              @default("Not assigned") @map("employee_response") @db.VarChar(24)
+  employeeRespondedAt    DateTime?           @map("employee_responded_at") @db.Timestamptz(6)
+  employeeDeclineNote    String?             @map("employee_decline_note") @db.VarChar(500)
+  attendance             WorkAttendance[]
+  reports                ServiceReport[]
+  feedback               CustomerFeedback[]
+  clientUserId           String?             @map("client_user_id") @db.Uuid
+  clientUser             User?               @relation("ClientRequests", fields: [clientUserId], references: [id], onDelete: SetNull)
+  quotedAmountRwf        Decimal?            @map("quoted_amount_rwf") @db.Decimal(12, 2)
+  paymentMethod          String              @default("Not decided") @map("payment_method") @db.VarChar(32)
+  clientPaymentStatus    String              @default("Not discussed") @map("client_payment_status") @db.VarChar(32)
+  providerPaymentStatus  String              @default("Not recorded") @map("provider_payment_status") @db.VarChar(32)
+  transactionReference   String?             @map("transaction_reference") @db.VarChar(120)
+  providerResponse       String              @default("Not assigned") @map("provider_response") @db.VarChar(24)
+  providerRespondedAt    DateTime?           @map("provider_responded_at") @db.Timestamptz(6)
+  providerDeclineNote    String?             @map("provider_decline_note") @db.VarChar(500)
+  createdAt              DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime            @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([createdAt(sort: Desc)])
+  @@index([status])
+  @@index([clientUserId, createdAt(sort: Desc)])
+  @@index([assignedEmployeeId, createdAt(sort: Desc)])
+  @@map("service_requests")
+}
+
+model ProviderApplication {
+  id                String           @id @default(uuid()) @db.Uuid
+  reference         String           @unique @db.VarChar(24)
+  fullName          String           @map("full_name") @db.VarChar(100)
+  phone             String           @db.VarChar(24)
+  email             String?          @db.VarChar(254)
+  neighborhood      String           @db.VarChar(100)
+  service           String           @db.VarChar(32)
+  experience        String
+  languages         String           @db.VarChar(150)
+  availability      String           @db.VarChar(250)
+  training          String?
+  referencesText    String           @map("references_text")
+  referenceConsent  Boolean          @default(false) @map("reference_consent")
+  screeningConsent  Boolean          @default(false) @map("screening_consent")
+  status            String           @default("Application received") @db.VarChar(64)
+  userId            String?          @unique @map("user_id") @db.Uuid
+  user              User?            @relation(fields: [userId], references: [id], onDelete: SetNull)
+  assignedRequests  ServiceRequest[]
+  createdAt         DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([createdAt(sort: Desc)])
+  @@map("provider_applications")
+}
+
+model AdminAuditLog {
+  id         BigInt   @id @default(autoincrement())
+  actor      String   @db.VarChar(254)
+  action     String   @db.VarChar(64)
+  entityType String   @map("entity_type") @db.VarChar(40)
+  entityId   String   @map("entity_id") @db.Uuid
+  details    Json     @default("{}") @db.JsonB
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([createdAt(sort: Desc)])
+  @@map("admin_audit_log")
+}
+
+model WebsiteContent {
+  id        String   @id @default(uuid()) @db.Uuid
+  key       String   @unique @default("homepage") @db.VarChar(40)
+  content   Json     @db.JsonB
+  updatedBy String   @map("updated_by") @db.VarChar(254)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("website_content")
+}
+
+model WorkAttendance {
+  id                String         @id @default(uuid()) @db.Uuid
+  requestId         String         @map("request_id") @db.Uuid
+  employeeId        String         @map("employee_id") @db.Uuid
+  checkInAt         DateTime       @default(now()) @map("check_in_at") @db.Timestamptz(6)
+  checkInLatitude   Decimal        @map("check_in_latitude") @db.Decimal(9, 6)
+  checkInLongitude  Decimal        @map("check_in_longitude") @db.Decimal(9, 6)
+  checkOutAt        DateTime?      @map("check_out_at") @db.Timestamptz(6)
+  checkOutLatitude  Decimal?       @map("check_out_latitude") @db.Decimal(9, 6)
+  checkOutLongitude Decimal?       @map("check_out_longitude") @db.Decimal(9, 6)
+  createdAt         DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  request           ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  employee          User           @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  @@unique([requestId, employeeId])
+  @@index([employeeId, checkInAt(sort: Desc)])
+  @@map("work_attendance")
+}
+
+model ServiceReport {
+  id         String         @id @default(uuid()) @db.Uuid
+  requestId  String         @map("request_id") @db.Uuid
+  employeeId String         @map("employee_id") @db.Uuid
+  kind       String         @db.VarChar(24)
+  message    String         @db.VarChar(2000)
+  createdAt  DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  request    ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  employee   User           @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  @@index([requestId, createdAt(sort: Desc)])
+  @@index([employeeId, createdAt(sort: Desc)])
+  @@map("service_reports")
+}
+
+model CustomerFeedback {
+  id         String         @id @default(uuid()) @db.Uuid
+  requestId  String         @map("request_id") @db.Uuid
+  clientId   String         @map("client_id") @db.Uuid
+  kind       String         @db.VarChar(16)
+  rating     Int?
+  message    String         @db.VarChar(2000)
+  status     String         @default("Received") @db.VarChar(24)
+  createdAt  DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
+  request    ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  client     User           @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  @@index([status, createdAt(sort: Desc)])
+  @@index([requestId, createdAt(sort: Desc)])
+  @@map("customer_feedback")
+}
+
+model EmployeeLeaveRequest {
+  id           String   @id @default(uuid()) @db.Uuid
+  employeeId   String   @map("employee_id") @db.Uuid
+  startDate    DateTime @map("start_date") @db.Date
+  endDate      DateTime @map("end_date") @db.Date
+  reason       String   @db.VarChar(1000)
+  status       String   @default("Pending") @db.VarChar(24)
+  reviewerId   String?  @map("reviewer_id") @db.Uuid
+  reviewerNote String?  @map("reviewer_note") @db.VarChar(500)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  employee     User     @relation("LeaveEmployee", fields: [employeeId], references: [id], onDelete: Cascade)
+  reviewer     User?    @relation("LeaveReviewer", fields: [reviewerId], references: [id], onDelete: SetNull)
+
+  @@index([employeeId, createdAt(sort: Desc)])
+  @@index([status, startDate])
+  @@map("employee_leave_requests")
+}

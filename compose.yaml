@@ -1,0 +1,69 @@
+services:
+  api:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      TZ: Africa/Kigali
+      DATABASE_URL: ${DATABASE_URL:-postgresql://USER:PASSWORD@HOST/DB?sslmode=require}
+      DATABASE_URL_UNPOOLED: ${DATABASE_URL_UNPOOLED:-}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-replace-with-a-long-unique-password}
+      AUTH_SECRET: ${AUTH_SECRET:-replace-with-at-least-32-random-characters}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SENDER_EMAIL: ${SENDER_EMAIL:-}
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+
+  backup:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: ${DATABASE_URL_UNPOOLED:-${DATABASE_URL:-postgresql://USER:PASSWORD@HOST/DB?sslmode=require}}
+    volumes:
+      - wellness-backups:/backups
+    command:
+      - /bin/sh
+      - -c
+      - |
+        set -eu
+        while true; do
+          case "$$DATABASE_URL" in
+            *USER:PASSWORD@HOST/DB*)
+              echo "Set DATABASE_URL in the project .env file to enable backups."
+              sleep 3600
+              continue
+              ;;
+          esac
+          until pg_isready --dbname="$$DATABASE_URL"; do
+            echo "Waiting for the Neon database before creating a backup."
+            sleep 10
+          done
+          stamp="$$(date -u +%Y-%m-%dT%H%M%SZ)"
+          pg_dump --format=custom --dbname="$$DATABASE_URL" --file="/backups/wellness-$$stamp.dump"
+          echo "Database backup created: wellness-$$stamp.dump"
+          find /backups -type f -name '*.dump' -mtime +14 -delete
+          sleep 86400
+        done
+
+  web:
+    build:
+      context: ./frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  wellness-backups:
