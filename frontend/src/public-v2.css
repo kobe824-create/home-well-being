@@ -336,3 +336,141 @@
 @media (prefers-reduced-motion: reduce) {
   .public-v2 *, .public-v2 *::before, .public-v2 *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Clearer, editorial service pages: aligned photography, useful detail and less card chrome. */
+.v2-service-catalog { align-items: stretch; }
+.v2-service-catalog article {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.v2-service-catalog article:hover { transform: none; box-shadow: none; }
+.v2-service-picture {
+  padding: 0;
+  background: #eeeaf7;
+  overflow: hidden;
+  border-radius: 28px 4px 4px 4px;
+}
+.v2-service-picture img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.52;
+  object-fit: cover;
+  border-radius: 0;
+}
+.v2-service-catalog article > div { padding: 17px 0 4px; }
+.v2-service-catalog .v2-kicker { color: var(--v2-rust) !important; }
+.v2-service-catalog article > div > p:not(.v2-kicker) {
+  min-height: 0;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+.v2-service-preview {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 13px 0 0;
+  border-top: 1px solid var(--v2-line);
+  display: grid;
+  gap: 7px;
+}
+.v2-service-preview li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  color: var(--v2-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.v2-service-preview li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  background: var(--v2-rust);
+  border-radius: 50%;
+  transform: translateY(-1px);
+}
+.v2-services-guide {
+  display: grid;
+  grid-template-columns: minmax(240px,.72fr) minmax(0,1.28fr);
+  gap: clamp(35px,7vw,90px);
+  align-items: start;
+  margin-top: 10px;
+  padding: 32px 0 37px;
+  border-top: 1px solid var(--v2-line);
+  border-bottom: 1px solid var(--v2-line);
+}
+.v2-services-guide-copy { max-width: 390px; }
+.v2-services-guide-copy .v2-kicker { margin-bottom: 10px; }
+.v2-services-guide-copy > p:not(.v2-kicker) { margin: 0 0 16px; line-height: 1.75; }
+.v2-services-guide-points { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; }
+.v2-services-guide-points article { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 9px; }
+.v2-services-guide-points article > span, .v2-service-planning-steps article > span {
+  color: var(--v2-rust);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+.v2-services-guide-points h2 { font-size: 17px; line-height: 1.35; margin: 0 0 8px; letter-spacing: -.02em; }
+.v2-services-guide-points p { margin: 0; font-size: 14px; line-height: 1.65; }
+.v2-services-catalog { padding-top: 78px; }
+.v2-services-catalog .v2-section-head { align-items: end; }
+.v2-services-catalog .v2-section-head h2 { font-size: clamp(1.8rem,3vw,2.55rem); }
+.v2-services-catalog .v2-section-head > p { max-width: 470px; }
+.v2-service-planning { padding: 76px 0 78px; background: #f0eef8; }
+.v2-service-planning-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 36px; }
+.v2-service-planning-head h2 { font-size: clamp(1.9rem,3.2vw,2.7rem); margin: 0; }
+.v2-service-planning-head .v2-kicker { margin-bottom: 10px; }
+.v2-service-planning-head > p { max-width: 420px; margin: 0; }
+.v2-service-planning-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 30px; }
+.v2-service-planning-steps article { min-height: 182px; padding: 20px 22px 22px 0; border-top: 1px solid #c9c4dc; }
+.v2-service-planning-steps article > span { display: block; margin-bottom: 24px; }
+.v2-service-planning-steps h3 { font-size: 20px; margin: 0 0 10px; }
+.v2-service-planning-steps p { max-width: 370px; margin: 0; line-height: 1.7; }
+.v2-service-planning .v2-scope-note { max-width: 100%; border-top: 1px solid #c9c4dc; margin-top: 20px; padding: 18px 0 0; font-size: 14px; }
+.v2-service-planning .v2-scope-note::before { content: "Before a booking is confirmed"; display: block; margin-bottom: 6px; color: var(--v2-ink); font-weight: 700; }
+.v2-about-commitments { padding: 6px 0 24px; border-bottom: 1px solid var(--v2-line); }
+.v2-about-commitments > h2 { max-width: 420px; }
+.v2-about-commitments > div { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.v2-about-commitments article { padding-top: 14px; border-top: 2px solid var(--v2-rust); }
+.v2-about-commitments h3 { font-size: 16px; margin: 0 0 7px; }
+.v2-about-commitments p { margin: 0; font-size: 14px; }
+.v2-request-layout > aside > p { line-height: 1.75; }
+.v2-checklist-title { margin: 25px 0 12px; font-size: 17px; }
+.v2-request-layout > aside ul { gap: 12px; }
+.v2-booking-assurances { margin-top: 24px; border-top: 1px solid var(--v2-line); }
+.v2-booking-assurances p { display: grid; grid-template-columns: 30px minmax(0,1fr); gap: 7px; margin: 0; padding: 13px 0; border-bottom: 1px solid var(--v2-line); font-size: 14px; }
+.v2-booking-assurances span { color: var(--v2-rust); font-weight: 700; font-size: 12px; }
+
+@media (max-width: 960px) {
+  .v2-services-guide { grid-template-columns: 1fr; gap: 25px; }
+  .v2-services-guide-copy { max-width: 650px; }
+  .v2-about-commitments > div { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .v2-service-catalog article > div { padding-top: 14px; }
+  .v2-service-preview { gap: 5px; }
+  .v2-service-preview li { font-size: 12px; }
+  .v2-services-guide { padding: 25px 0 29px; }
+  .v2-services-guide-points { grid-template-columns: 1fr; gap: 17px; }
+  .v2-services-guide-points article { grid-template-columns: 34px minmax(0,1fr); }
+  .v2-services-catalog { padding-top: 60px; }
+  .v2-services-catalog .v2-section-head > p { margin-top: 12px; }
+  .v2-service-planning { padding: 53px 0 55px; }
+  .v2-service-planning-head { display: block; margin-bottom: 25px; }
+  .v2-service-planning-head > p { margin-top: 13px; }
+  .v2-service-planning-steps { grid-template-columns: 1fr; gap: 0; }
+  .v2-service-planning-steps article { min-height: 0; padding: 16px 0 20px; }
+  .v2-service-planning-steps article > span { margin-bottom: 13px; }
+  .v2-about-commitments > div { gap: 14px; }
+}
+@media (max-width: 520px) {
+  .v2-service-catalog { grid-template-columns: 1fr; gap: 30px; }
+  .v2-service-picture img { aspect-ratio: 1.7; }
+  .v2-service-preview li { font-size: 14px; }
+}

@@ -4,6 +4,14 @@ import { DomainError } from "./domain.js";
 export const DEFAULT_SITE_CONTENT = JSON.parse(
   fs.readFileSync(new URL("./site-defaults.json", import.meta.url), "utf8"),
 );
+const copyMigrations = JSON.parse(
+  fs.readFileSync(new URL("./site-copy-migrations.json", import.meta.url), "utf8"),
+);
+const retiredPhotoPaths = new Set([
+  "/images/kigali-home-care.webp",
+  "/images/home-driver.webp",
+  "/images/rwanda-home.jpg",
+]);
 const immutable = new Set(["id", "slug", "icon", "version"]);
 const clone = (value) => structuredClone(value);
 const isObject = (value) =>
@@ -236,16 +244,20 @@ function mergeNode(template, value, path) {
         ),
       );
     if (value.length > 30) return clone(template);
-    if (path === "photography.items")
+    if (path === "photography.items") {
+      const currentPhotos = value.filter(
+        (item) => !retiredPhotoPaths.has(item?.image),
+      );
       return Array.from(
-        { length: Math.max(template.length, value.length) },
+        { length: Math.max(template.length, currentPhotos.length) },
         (_, index) =>
           mergeNode(
             template[index] ?? template[0],
-            value[index],
+            currentPhotos[index],
             `${path}.${index}`,
           ),
       );
+    }
     return value.map((item, index) =>
       mergeNode(template[index] ?? template[0], item, `${path}.${index}`),
     );
@@ -266,39 +278,37 @@ function mergeNode(template, value, path) {
 }
 export function mergeSiteContent(saved) {
   const content = mergeNode(DEFAULT_SITE_CONTENT, migrateLegacy(saved), "");
-  const legacyImage = "/images/rwanda-home.jpg";
-  const replacementCredit = DEFAULT_SITE_CONTENT.photography.items.find(
-    (item) => item.image === "/images/kigali-home-care.webp",
-  );
-  function migrateHomeImages(value, path = "") {
+  function migratePublishedCopy(value, path = "") {
     if (Array.isArray(value))
       return value.map((item, index) =>
-        path === "photography.items" &&
-        item?.image === legacyImage &&
-        replacementCredit
-          ? clone(replacementCredit)
-          : migrateHomeImages(item, `${path}.${index}`),
+        migratePublishedCopy(item, `${path}.${index}`),
       );
     if (isObject(value))
       return Object.fromEntries(
         Object.entries(value).map(([key, item]) => [
           key,
-          migrateHomeImages(item, path ? `${path}.${key}` : key),
+          migratePublishedCopy(item, path ? `${path}.${key}` : key),
         ]),
       );
-    if (value === legacyImage) return "/images/kigali-home-care.webp";
-    if (
-      value ===
-      "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road."
-    )
-      return "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.";
-    if (value === "A view of homes in Nyabihu, Rwanda.")
-      return "An illustrative home-care moment in a modest Kigali setting.";
-    if (typeof value === "string" && value.includes("Noemi Ciucci / Wikimedia"))
-      return "Illustrative Kigali home-care image created for this website; it does not depict a real property or identified person.";
+    const migration = copyMigrations[path];
+    if (typeof value === "string" && migration?.from === value)
+      return migration.to;
+    if (typeof value !== "string") return value;
+    if (value === "/images/kigali-home-care.webp" || value === "/images/rwanda-home.jpg")
+      return "/images/community-care.jpg";
+    if (value === "/images/home-driver.webp")
+      return path === "home.homeImage" ? "/images/care-at-home.jpg" : "/images/community-care.jpg";
+    if (value.startsWith("Illustrative scene of a home care worker"))
+      return "A Black family spending time together at home.";
+    if (value.startsWith("Illustrative scene of a home driver"))
+      return "An older Black man smiling at home.";
+    if (value.startsWith("Illustrative Kigali home-care image created for this website"))
+      return "";
+    if (value.startsWith("An illustrative home-care moment"))
+      return "The people and routines that make a home feel like yours.";
     return value;
   }
-  return migrateHomeImages(content);
+  return migratePublishedCopy(content);
 }
 let publishedContent = clone(DEFAULT_SITE_CONTENT);
 let publicationRevision = 0;

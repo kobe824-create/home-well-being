@@ -1,0 +1,470 @@
+{
+  "provider.intro": {
+    "from": "We welcome people with experience in care, childcare, cooking, cleaning, home driving and household security. Tell us what you do well.",
+    "to": "We welcome applications from people with experience in care, childcare, cooking, cleaning, driving or household security. Tell us about your skills, the work you have done and the kind of service you can support."
+  },
+  "provider.sidebarText": {
+    "from": "Applications are reviewed for experience, references and the requirements of each service. Documents are requested privately.",
+    "to": "Each application is considered against the service needs and requirements. We may discuss your experience and references first; identity or other documents should only be shared through the private process requested by the team."
+  },
+  "provider.steps.0": {
+    "from": "Share your experience",
+    "to": "Share your work experience and preferred service"
+  },
+  "provider.steps.1": {
+    "from": "Talk through your references",
+    "to": "Talk through relevant references and practical availability"
+  },
+  "provider.steps.2": {
+    "from": "Complete the required screening",
+    "to": "Complete the checks and requirements for the service"
+  },
+  "provider.steps.3": {
+    "from": "Receive suitable, approved assignments",
+    "to": "Discuss suitable assignments after approval"
+  },
+  "provider.formIntro": {
+    "from": "Share your experience. Documents are requested through a private account after review.",
+    "to": "Give us a clear picture of your experience and the services you are interested in. Do not attach identity documents here; the team will explain any private follow-up needed."
+  },
+  "about.intro": {
+    "from": "Wellness Home Care & Assistance helps families in Kigali find practical, thoughtful support for everyday life.",
+    "to": "Wellness Home Care & Assistance helps Kigali households find considerate, practical support for the parts of daily life that need an extra hand. We make room for a real conversation about the people, routines and expectations in each home."
+  },
+  "about.sections.0.body": {
+    "from": "Inviting someone into your home takes trust. We begin by understanding what matters to your household: the routines, people, priorities and boundaries.",
+    "to": "Inviting someone into your home is personal. We ask what a good day looks like for your household, what support would help, and which routines or boundaries matter most. That gives both sides a clearer place to start."
+  },
+  "about.sections.1.body": {
+    "from": "We review service suitability and worker requirements, agree duties and pricing, and keep families connected to their arrangements.",
+    "to": "Before a booking is confirmed, we talk through duties, timing, service suitability and price. You can ask questions and understand what is included, what needs a separate arrangement and who to contact if plans change."
+  },
+  "about.sections.2.body": {
+    "from": "Mary and the team are available to discuss a first request, a change in plans or a concern. Good communication is part of the service.",
+    "to": "Mary and the team are a point of contact for a first enquiry, a schedule change or a concern. We want communication to stay straightforward from the first conversation through the agreed service."
+  },
+  "contact.intro": {
+    "from": "A first question, a change in plans, or a particular kind of help. Mary and the team are here to listen.",
+    "to": "Talk to Mary and the team about a first request, an existing arrangement or a question about our services. Call, write or send a message using the form; share only the information needed for us to reply."
+  },
+  "contact.image": {
+    "from": "/images/kigali-home-care.webp",
+    "to": "/images/community-care.jpg"
+  },
+  "contact.formTitle": {
+    "from": "Leave a note for Mary",
+    "to": "How can we help?"
+  },
+  "contact.imageAlt": {
+    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
+    "to": "A Black family spending time together at home."
+  },
+  "contact.successText": {
+    "from": "Thank you for getting in touch. We will follow up using the contact details you provided.",
+    "to": "Thank you for writing to us. Your message has been received with the contact details you provided, and our team will follow up about your question."
+  },
+  "services.0.prepare": {
+    "from": "Tell us about the support required, accessibility and communication preferences. We agree specific duties with the family before confirming a visit.",
+    "to": "Tell us what kind of support would help, the preferred visit times and any accessibility or communication preferences. We will agree the specific duties and family contact arrangements before a visit is confirmed."
+  },
+  "services.0.includes.0": {
+    "from": "Companionship and conversation",
+    "to": "Conversation, companionship and time together"
+  },
+  "services.0.includes.1": {
+    "from": "Meal assistance and everyday routines",
+    "to": "Help with agreed meals and everyday routines"
+  },
+  "services.0.includes.2": {
+    "from": "Accompaniment agreed with your family",
+    "to": "Accompaniment when arranged with your family"
+  },
+  "services.0.includes.3": {
+    "from": "Updates after each visit",
+    "to": "A visit update through the agreed communication channel"
+  },
+  "services.0.boundaries": {
+    "from": "Our assistance is non-medical. It does not include nursing, diagnosis, medication administration or emergency response.",
+    "to": "This is non-medical home assistance. It does not include nursing, diagnosis, clinical advice, medication administration or emergency response. Discuss any task that may involve a health risk with the team before requesting it."
+  },
+  "services.0.description": {
+    "from": "Companionship and a helping hand with everyday routines, with respect for independence at every step.",
+    "to": "Companionship and practical help with agreed everyday routines, shaped around the person’s preferences and independence. Tell us what would make visits feel comfortable, familiar and useful for your family member."
+  },
+  "services.1.prepare": {
+    "from": "Choose the age range and preferred hours. Detailed care instructions and authorized contacts belong in your private household profile, not a public enquiry.",
+    "to": "Share the child’s age range, preferred hours and the routines you want the provider to follow. A parent or guardian should agree the authorized handover contacts and any important instructions privately with the team."
+  },
+  "services.1.includes.1": {
+    "from": "Agreed meals and family routines",
+    "to": "Meals and daily routines agreed with a parent"
+  },
+  "services.1.includes.2": {
+    "from": "Parent-approved arrival and handover",
+    "to": "Parent-approved arrival and handover arrangements"
+  },
+  "services.1.includes.3": {
+    "from": "Clear communication during the service",
+    "to": "Communication during the agreed service hours"
+  },
+  "services.1.boundaries": {
+    "from": "Age suitability, service hours and provider screening are reviewed for each request. A parent or guardian must authorize care and agree handover contacts before confirmation.",
+    "to": "Age suitability, service hours and provider requirements are reviewed for each request. A parent or guardian must authorize the care and agree handover contacts before confirmation; the service is not an emergency childcare arrangement."
+  },
+  "services.1.description": {
+    "from": "Attentive support for your family’s everyday rhythm, with routines, responsibilities and handovers agreed together.",
+    "to": "Attentive childcare support planned around your family’s routines, the child’s age and the handover arrangements you choose. We discuss expectations with a parent or guardian before a booking is confirmed."
+  },
+  "services.2.prepare": {
+    "from": "Tell us how many people the meals are for, your meal preferences and who will supply ingredients. Discuss allergies privately with our team before service.",
+    "to": "Tell us how many people the meals are for, what kind of food you prefer and who will provide ingredients. Please discuss allergies directly with the team before service so the practical arrangements can be reviewed."
+  },
+  "services.2.includes.1": {
+    "from": "Agreed meal-planning support",
+    "to": "Menu or meal-planning support when agreed"
+  },
+  "services.2.includes.2": {
+    "from": "Preferences and dietary needs discussed",
+    "to": "Food preferences and dietary needs discussed in advance"
+  },
+  "services.2.includes.3": {
+    "from": "Kitchen handover after preparation",
+    "to": "A clear kitchen handover after preparation"
+  },
+  "services.2.boundaries": {
+    "from": "Ingredients, kitchen equipment, cleaning materials and any additional costs are agreed before the booking. Food-handling suitability is part of provider review.",
+    "to": "Ingredients, kitchen equipment, cleaning materials and any additional costs are agreed before the booking. Food-handling suitability is part of provider review; the service does not replace medical nutrition advice."
+  },
+  "services.2.description": {
+    "from": "Freshly prepared meals in your own kitchen, planned around what your household enjoys and needs.",
+    "to": "Meals prepared in your own kitchen around the dishes your household enjoys and the time you have available. We discuss the number of people, kitchen setup and ingredients so the agreed work is clear before the visit."
+  },
+  "services.3.prepare": {
+    "from": "Tell us the rooms and priorities. We will agree the checklist, supplies, access arrangements and time needed.",
+    "to": "Tell us which rooms matter most and whether you will provide cleaning products or equipment. We will review the checklist, access arrangements and time needed before confirming the visit."
+  },
+  "services.3.includes.1": {
+    "from": "Kitchen and bathroom cleaning as agreed",
+    "to": "Kitchen and bathroom tasks agreed in the checklist"
+  },
+  "services.3.includes.2": {
+    "from": "A clear checklist for your home",
+    "to": "Priorities set around the rooms you use most"
+  },
+  "services.3.includes.3": {
+    "from": "Supplies and equipment agreed before arrival",
+    "to": "Supplies and equipment discussed before arrival"
+  },
+  "services.3.boundaries": {
+    "from": "Specialist cleaning, hazardous materials and work at height need separate review. The team confirms tasks and equipment before the visit.",
+    "to": "Specialist cleaning, hazardous materials and work at height need separate review. Please mention unusual surfaces or equipment in your private conversation so the team can confirm whether the requested work is suitable."
+  },
+  "services.3.description": {
+    "from": "Practical cleaning support for the spaces you use every day, with the rooms, tasks and supplies agreed in advance.",
+    "to": "Practical cleaning for the rooms and surfaces your household uses every day. We agree a simple task list, priorities, supplies and access arrangements so everyone understands what will be covered during the visit."
+  },
+  "services.4.image": {
+    "from": "/images/home-driver.webp",
+    "to": "/images/community-care.jpg"
+  },
+  "services.4.prepare": {
+    "from": "Share the preferred date, time and general area. Keep exact addresses and sensitive travel details for a private conversation with our team.",
+    "to": "Share the general area, preferred time and type of journey first. Exact addresses, passenger details and sensitive travel information are best shared privately with the team while the route and vehicle arrangements are reviewed."
+  },
+  "services.4.alt": {
+    "from": "Illustrative scene of a home driver beside an ordinary family car outside a modest Kigali home. The person and property are not a real Wellness employee or customer.",
+    "to": "A Black family sharing time together at home."
+  },
+  "services.4.includes.0": {
+    "from": "A driver for planned household journeys",
+    "to": "A driver for a journey agreed in advance"
+  },
+  "services.4.includes.1": {
+    "from": "Pick-up times and route discussed in advance",
+    "to": "Pick-up timing and route discussed with the household"
+  },
+  "services.4.includes.2": {
+    "from": "Vehicle arrangements confirmed with the family",
+    "to": "Vehicle arrangements clarified before the trip"
+  },
+  "services.4.includes.3": {
+    "from": "Clear updates before and after each trip",
+    "to": "A clear contact plan for journey updates"
+  },
+  "services.4.videoPoster": {
+    "from": "/images/home-driver.webp",
+    "to": "/images/community-care.jpg"
+  },
+  "services.4.boundaries": {
+    "from": "Driver licence, availability, vehicle, insurance and journey details must be reviewed and agreed before any trip is confirmed. A request is not a confirmed ride.",
+    "to": "Driver licence, availability, vehicle, insurance and journey details must be reviewed and agreed before any trip is confirmed. Submitting a request does not confirm a ride or reserve a vehicle."
+  },
+  "services.4.description": {
+    "from": "A professional driver for everyday journeys, appointments and family errands, with routes and vehicle arrangements agreed before confirmation.",
+    "to": "Home driving can help with planned journeys, appointments and household errands. We discuss the date, route, vehicle arrangement and passenger needs with you before confirming any trip."
+  },
+  "services.5.prepare": {
+    "from": "Discuss the property, hours, access procedures and responsibilities with our team. Do not share alarm codes or detailed security arrangements in the public request form.",
+    "to": "Discuss the property, hours, access procedures and responsibilities with the team. Do not send alarm codes, detailed layouts or security-sensitive arrangements through the public request form."
+  },
+  "services.5.includes.0": {
+    "from": "Household security needs review",
+    "to": "A conversation about household coverage needs"
+  },
+  "services.5.includes.1": {
+    "from": "Agreed access and visitor procedures",
+    "to": "Visitor and access procedures agreed with you"
+  },
+  "services.5.includes.2": {
+    "from": "A clear duty schedule and handover",
+    "to": "A duty schedule and handover plan discussed"
+  },
+  "services.5.includes.3": {
+    "from": "Incident reporting and household updates",
+    "to": "A clear route for household updates or incident reports"
+  },
+  "services.5.boundaries": {
+    "from": "Security assignments require approved operating arrangements, suitable personnel and applicable licensing. A request is reviewed before availability and service scope are confirmed.",
+    "to": "Security assignments require suitable personnel, approved operating arrangements and any applicable licensing. A request is reviewed before availability or service scope can be confirmed; do not rely on this service for emergency response."
+  },
+  "services.5.description": {
+    "from": "Discuss security support for your household, with suitable personnel, responsibilities and coverage reviewed before any arrangement is confirmed.",
+    "to": "Discuss household security needs and the kind of coverage you are considering. We review the responsibilities, hours, access process and service requirements before advising whether an arrangement can be considered."
+  },
+  "servicesPage.intro": {
+    "from": "From companionship and childcare to cooking, cleaning, home driving and security: choose what your household needs and let us talk it through.",
+    "to": "Explore care, household and practical support for families in Kigali. Start with the service that feels closest to what you need; we can work through the details together."
+  },
+  "servicesPage.image": {
+    "from": "/images/kigali-home-care.webp",
+    "to": "/images/community-care.jpg"
+  },
+  "servicesPage.scopeTitle": {
+    "from": "The right support starts with the details.",
+    "to": "A clear agreement before the first visit"
+  },
+  "servicesPage.imageAlt": {
+    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
+    "to": "A Black family spending time together at home."
+  },
+  "servicesPage.scopeText": {
+    "from": "Every request is reviewed. We agree the person, duties, schedule, price and service boundaries with you before confirming.",
+    "to": "We discuss who needs support, the tasks, schedule, location and price. A request is only confirmed after you and our team have agreed what the service includes and how it will work."
+  },
+  "servicesPage.title": {
+    "from": "People cared for.\nHomes looked after.",
+    "to": "Thoughtful help,\nmade personal."
+  },
+  "servicesPage.eyebrow": {
+    "from": "Help that fits your household",
+    "to": "Home support, shaped around your routine"
+  },
+  "labels.galleryCaption": {
+    "from": "Illustrative photography. The people shown are not presented as Wellness staff or customers.",
+    "to": "Licensed photographs of families and everyday home routines."
+  },
+  "photography.note": {
+    "from": "Our photographs help show the kinds of home and community settings that inform this service. Unless a caption says otherwise, people shown are not identified as Wellness staff or customers.",
+    "to": "These licensed stock photographs and video illustrate home and community settings. They do not identify Wellness clients or staff."
+  },
+  "photography.items.6.image": {
+    "from": "/images/kigali-home-care.webp",
+    "to": "/images/home-cleaning.jpg"
+  },
+  "photography.items.6.location": {
+    "from": "Illustrative Kigali setting",
+    "to": ""
+  },
+  "photography.items.6.alt": {
+    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
+    "to": "Black woman cleaning a living room with a vacuum cleaner."
+  },
+  "photography.items.6.author": {
+    "from": "Wellness Home Care & Assistance",
+    "to": "Gustavo Fring"
+  },
+  "photography.items.6.sourceUrl": {
+    "from": "",
+    "to": "https://www.pexels.com/video/a-woman-vacuuming-the-floor-6496244/"
+  },
+  "photography.items.6.note": {
+    "from": "Illustrative image created for the website. It does not depict an identified family, staff member or property.",
+    "to": "A muted 540p, 18-second loop from this Pexels clip (about 1.3 MB). It plays only when reduced motion is off and data-saver mode is disabled."
+  },
+  "photography.items.6.title": {
+    "from": "An illustrative home-care moment",
+    "to": "Home cleaning background video loop"
+  },
+  "photography.items.6.license": {
+    "from": "Illustrative image created for this website",
+    "to": "Pexels License"
+  },
+  "photography.items.6.licenseUrl": {
+    "from": "",
+    "to": "https://www.pexels.com/license/"
+  },
+  "photography.title": {
+    "from": "The people and places in our photographs.",
+    "to": "Photographs used on the website"
+  },
+  "photography.rwandaCredit": {
+    "from": "Illustrative Kigali home-care image created for this website; it does not depict a real property or identified person.",
+    "to": ""
+  },
+  "faq.intro": {
+    "from": "Questions about a first request, your care team or a change in plans? Start here.",
+    "to": "Find practical answers about requests, quotes, visit arrangements and communication. If your question is specific to your household, contact Mary and the team directly."
+  },
+  "faq.items.0.answer": {
+    "from": "Not yet. Every request is reviewed by our team. We confirm the scope, suitable provider, availability, price and terms with you before the booking is confirmed.",
+    "to": "No. A request tells us what you are looking for; it does not reserve a provider or time. The team will review the service, discuss suitability and availability, agree the duties and quote with you, and confirm the booking only when you both agree."
+  },
+  "faq.items.1.answer": {
+    "from": "We prepare a quote after understanding the service, duration and location. You can review the agreed price and any transport, supplies, ingredients or overtime before confirming.",
+    "to": "Prices depend on the service, duration and location. We prepare a quote after discussing the work and any relevant transport, supplies, ingredients or other costs. You can review the full proposed price before deciding whether to confirm."
+  },
+  "faq.items.2.answer": {
+    "from": "Our team matches the request with a suitable available provider after reviewing the relevant identity, reference and service requirements. You can see your assigned provider in your private account once the assignment is confirmed.",
+    "to": "The team discusses a suitable available provider with you after reviewing the service needs and relevant requirements. Once an arrangement is confirmed, the provider and agreed duties are shared through your private account or direct communication."
+  },
+  "faq.items.3.answer": {
+    "from": "Yes. Let us know your preferred weekly routine in the request. Our team reviews availability and confirms each agreed visit; submitting a recurring request does not reserve unconfirmed time.",
+    "to": "You can tell us the routine you would prefer, including days and approximate times. The team will review the schedule and confirm what is available. A recurring request does not hold time that has not been agreed."
+  },
+  "faq.items.4.answer": {
+    "from": "No. Elderly home assistance is non-medical and is not a substitute for clinical or emergency services. Please contact an appropriate emergency service if someone needs urgent medical help.",
+    "to": "No. Elderly home assistance is non-medical and does not replace nursing, clinical advice or emergency response. If someone needs urgent medical help, contact an appropriate emergency service."
+  },
+  "faq.items.5.answer": {
+    "from": "After a quote is agreed, invoices appear in your account. Approved cash, bank-transfer and mobile-money payments can be recorded by the team. If enabled, online payments open a secure hosted payment page; we never ask for card details in a booking form.",
+    "to": "The team explains payment options and timing when you review the quote. Invoices and any supported payment records are available in your account. If online payment is enabled for your booking, use the secure payment page; do not send card details in a message or request form."
+  },
+  "faq.items.6.answer": {
+    "from": "You can request a change or cancellation from your account. Our team reviews the schedule and responds. The applicable cancellation or refund terms must be agreed before a booking is confirmed.",
+    "to": "Contact the team as soon as plans change. You can request a change or cancellation from your account, and the team will review the schedule and applicable terms with you. A requested change is not confirmed until you receive a response."
+  },
+  "faq.items.7.answer": {
+    "from": "Your provider records arrival and departure for the assigned visit. GPS is used for attendance verification at those moments, rather than continuous location tracking. You can follow service updates in your account.",
+    "to": "For an assigned visit, the provider records arrival and departure for attendance. GPS is used at those check-in and check-out moments, rather than as continuous location tracking. Visit updates are available in your private account."
+  },
+  "cta.text": {
+    "from": "Tell us about your household. We will help you find a practical place to begin.",
+    "to": "Tell us what would make the day easier. We will talk through the right service, the practical details and a quote before you decide."
+  },
+  "home.homeImageAlt": {
+    "from": "Illustrative scene of a home driver beside an ordinary family car outside a modest Kigali home. The person and property are not a real Wellness employee or customer.",
+    "to": "An older Black man smiling at home."
+  },
+  "home.values.0.text": {
+    "from": "Tell us what would make a difference. Mary and the team help you work through the details.",
+    "to": "Tell us who needs support, what you would like help with and when it would be useful. We will listen first and ask only for the details needed to plan the next conversation."
+  },
+  "home.values.1.text": {
+    "from": "Experience, references, service suitability and availability are reviewed before an assignment.",
+    "to": "We discuss the service, suitability, schedule and price with you. You can raise questions, explain household preferences and understand the planned duties before you decide."
+  },
+  "home.values.2.text": {
+    "from": "Follow your agreed visits, arrival updates and messages from your private family account.",
+    "to": "Once an arrangement is confirmed, use your family account to follow visit updates, messages and invoices. Contact the team if your plans or support needs change."
+  },
+  "home.homeImageCaption": {
+    "from": "A trusted driver to help you get there.",
+    "to": "Support that respects independence."
+  },
+  "home.story.image": {
+    "from": "/images/kigali-home-care.webp",
+    "to": "/images/community-care.jpg"
+  },
+  "home.story.videoPoster": {
+    "from": "/images/kigali-home-care.webp",
+    "to": "/images/community-care.jpg"
+  },
+  "home.story.imageAlt": {
+    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
+    "to": "A Black family spending time together at home."
+  },
+  "home.story.caption": {
+    "from": "An illustrative home-care moment in a modest Kigali setting.",
+    "to": "The people and routines that make a home feel like yours."
+  },
+  "home.story.body": {
+    "from": "Children coming home from school. A parent who enjoys a familiar face. A kitchen that needs an extra pair of hands. Your routines come first; our role is to find support that fits them.",
+    "to": "A school-day handover, a meal prepared at home, or a visit with an older relative can shape the whole week. We start with the way your household already works, then agree where another pair of hands could make the day easier."
+  },
+  "home.intro": {
+    "from": "A caring hand for your loved ones. Help with the everyday. We bring thoughtful home support to families in Kigali, with the details agreed together.",
+    "to": "Thoughtful help for the people you love and the home you share. Tell us what is taking up time or needs a little more support; we will talk through the right service, the routine and the details with you."
+  },
+  "home.homeImage": {
+    "from": "/images/home-driver.webp",
+    "to": "/images/care-at-home.jpg"
+  },
+  "home.servicesIntro": {
+    "from": "Six ways to bring a little more ease into your day. We start by listening, then agree the right person, tasks and schedule.",
+    "to": "Choose one kind of support or tell us how a few routines fit together. We will discuss the tasks, preferred days and practical arrangements before a booking is confirmed."
+  },
+  "booking.intro": {
+    "from": "Send a request. Our team will contact you to work through the details and confirm availability.",
+    "to": "Tell us what kind of help you are looking for and when it might be useful. The team will review your request, discuss suitability and availability, and share a quote for you to consider."
+  },
+  "booking.image": {
+    "from": "/images/kigali-home-care.webp",
+    "to": "/images/community-care.jpg"
+  },
+  "booking.assurances.0": {
+    "from": "A personal review of your request",
+    "to": "We review the service and practical needs you describe."
+  },
+  "booking.assurances.1": {
+    "from": "A clear quote before confirmation",
+    "to": "You can discuss duties, timing and price before confirming."
+  },
+  "booking.assurances.2": {
+    "from": "Updates in your family account",
+    "to": "A submitted request does not reserve an unconfirmed time."
+  },
+  "booking.asideText": {
+    "from": "Share the neighbourhood and a short outline here. Full addresses, care instructions and private information belong in your household account.",
+    "to": "Use the form to share a general area, preferred timing and a short description of the support. Do not include full home addresses, medical records, alarm codes or other sensitive details in a first enquiry."
+  },
+  "booking.imageAlt": {
+    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
+    "to": "A Black family spending time together at home."
+  },
+  "booking.asideTitle": {
+    "from": "Your home.\nYour kind of help.",
+    "to": "A good plan starts\nwith the basics."
+  },
+  "booking.questionLink": {
+    "from": "Prefer to have a conversation first?",
+    "to": "Would you rather talk it through first?"
+  },
+  "booking.formIntro": {
+    "from": "Your request starts a conversation. Our team will discuss availability and the right support with you.",
+    "to": "A few clear details help us understand the request. We will contact you to discuss any questions, availability and the proposed arrangement."
+  },
+  "howItWorks.intro": {
+    "from": "You do not need to have every detail worked out. A conversation is a good beginning.",
+    "to": "A first request does not need to contain every detail. Choose a service, share the broad timing and location, and we will help you work out what else is needed."
+  },
+  "howItWorks.accountText": {
+    "from": "Visits, care updates, invoices and messages. A clear view when you need one.",
+    "to": "Keep the details of a confirmed arrangement together: visit updates, messages, invoices and feedback in one private place."
+  },
+  "howItWorks.steps.0.text": {
+    "from": "Choose a service and share your preferred area, date and hours. Keep private care details in your family account.",
+    "to": "Choose a service and tell us the general area, preferred days or date, and the kind of support you have in mind. Keep full addresses and sensitive care information for your private household account or direct conversation."
+  },
+  "howItWorks.steps.1.text": {
+    "from": "We discuss the tasks, review suitable people and agree a quote and schedule.",
+    "to": "We talk through the tasks, household preferences, service boundaries and any practical arrangements such as supplies, ingredients or transport. We can answer questions before you make a decision."
+  },
+  "howItWorks.steps.2.text": {
+    "from": "You know who is coming, what has been agreed and how to get in touch before the visit.",
+    "to": "You review the proposed provider, duties, timing and quote. The arrangement becomes a booking only after the details and availability are agreed with you."
+  },
+  "howItWorks.steps.3.text": {
+    "from": "See arrival and completion updates, manage invoices and share feedback in your account.",
+    "to": "For a confirmed visit, follow the updates and messages available in your family account. If your routine changes, contact the team so the schedule can be reviewed."
+  }
+}

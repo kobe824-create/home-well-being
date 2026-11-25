@@ -286,15 +286,6 @@ function PageIntro({ data }) {
     </div>
   );
 }
-function PhotoCredit({ image }) {
-  const { content: c } = useSiteContent();
-  if (image !== "/images/kigali-home-care.webp") return null;
-  return (
-    <a className="v2-photo-credit" href="/photo-credits">
-      {c.photography?.rwandaCredit || "About this illustrative image"}
-    </a>
-  );
-}
 function CareCta() {
   const {
     content: { cta: c, business: b },
@@ -338,6 +329,11 @@ function ServiceCatalog({ compact = false }) {
               <a href={`/services/${s.slug}`}>{s.title}</a>
             </h3>
             <p>{s.description}</p>
+            <ul className="v2-service-preview">
+              {s.includes.slice(0, 3).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
             <a className="v2-text-link" href={`/services/${s.slug}`}>
               {c.labels.exploreService}
             </a>
@@ -420,7 +416,6 @@ function Home() {
               <img src={h.homeImage} alt={h.homeImageAlt} decoding="async" />
               <figcaption>
                 <strong>{h.homeImageCaption}</strong>
-                <PhotoCredit image={h.homeImage} />
               </figcaption>
             </figure>
           </div>
@@ -456,10 +451,7 @@ function Home() {
               videoPoster={h.story.videoPoster}
               videoTitle={h.story.videoTitle}
             />
-            <figcaption>
-              {h.story.caption}
-              <PhotoCredit image={h.story.image} />
-            </figcaption>
+            <figcaption>{h.story.caption}</figcaption>
           </figure>
           <div>
             <p className="v2-kicker">{h.story.eyebrow}</p>
@@ -631,7 +623,6 @@ function Contact() {
           </WhatsAppLink>
           <figure>
             <img src={d.image} alt={d.imageAlt} loading="lazy" />
-            <PhotoCredit image={d.image} />
           </figure>
           <small>{d.emergencyNote}</small>
         </aside>
@@ -831,19 +822,55 @@ export default function PublicSite({ user }) {
     page = (
       <>
         <PageIntro data={c.servicesPage} />
-        <figure className="container v2-wide-picture">
-          <img
-            src={c.servicesPage.image}
-            alt={c.servicesPage.imageAlt}
-            loading="eager"
-          />
-          <PhotoCredit image={c.servicesPage.image} />
-        </figure>
-        <section className="container v2-section">
+        <section className="container v2-services-guide">
+          <div className="v2-services-guide-copy">
+            <p className="v2-kicker">{c.servicesPage.guideTitle}</p>
+            <p>{c.servicesPage.guideText}</p>
+            <a className="v2-text-link" href="/book">
+              {c.labels.requestService}
+            </a>
+          </div>
+          <div className="v2-services-guide-points">
+            {c.servicesPage.guidePoints.map((point, index) => (
+              <article key={index}>
+                <span aria-hidden="true">0{index + 1}</span>
+                <div>
+                  <h2>{point.title}</h2>
+                  <p>{point.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="container v2-section v2-services-catalog">
+          <div className="v2-section-head">
+            <div>
+              <p className="v2-kicker">{c.servicesPage.catalogEyebrow}</p>
+              <h2>{c.servicesPage.catalogTitle}</h2>
+            </div>
+            <p>{c.servicesPage.catalogIntro}</p>
+          </div>
           <ServiceCatalog />
-          <div className="v2-scope-note">
-            <h2>{c.servicesPage.scopeTitle}</h2>
-            <p>{c.servicesPage.scopeText}</p>
+        </section>
+        <section className="v2-service-planning">
+          <div className="container">
+            <div className="v2-service-planning-head">
+              <div>
+                <p className="v2-kicker">{c.servicesPage.scopeTitle}</p>
+                <h2>{c.servicesPage.planningTitle}</h2>
+              </div>
+              <p>{c.servicesPage.planningIntro}</p>
+            </div>
+            <div className="v2-service-planning-steps">
+              {c.servicesPage.planningSteps.map((step, index) => (
+                <article key={index}>
+                  <span>0{index + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </article>
+              ))}
+            </div>
+            <p className="v2-scope-note">{c.servicesPage.scopeText}</p>
           </div>
         </section>
         <CareCta />
@@ -862,6 +889,17 @@ export default function PublicSite({ user }) {
                 <p>{s.body}</p>
               </section>
             ))}
+            <section className="v2-about-commitments">
+              <h2>{c.about.commitmentsTitle}</h2>
+              <div>
+                {c.about.commitments.map((item, i) => (
+                  <article key={i}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
             <a className="button button-primary" href="/contact">
               {c.about.contactButton}
             </a>
@@ -896,22 +934,27 @@ export default function PublicSite({ user }) {
         <PageIntro data={c.booking} />
         <section className="container v2-request-layout">
           <aside>
-            <figure>
-              <img src={c.booking.image} alt={c.booking.imageAlt} />
-              <PhotoCredit image={c.booking.image} />
-            </figure>
             <h2>
               <Lines text={c.booking.asideTitle} />
             </h2>
+            <p>{c.booking.asideText}</p>
+            <h3 className="v2-checklist-title">{c.booking.preparationTitle}</h3>
             <ul>
-              {c.booking.assurances.map((x, i) => (
+              {c.booking.preparationPoints.map((x, i) => (
                 <li key={i}>
                   <Icon name="check" size={18} />
                   {x}
                 </li>
               ))}
             </ul>
-            <p>{c.booking.asideText}</p>
+            <div className="v2-booking-assurances">
+              {c.booking.assurances.map((x, i) => (
+                <p key={i}>
+                  <span>0{i + 1}</span>
+                  {x}
+                </p>
+              ))}
+            </div>
             <a className="v2-text-link" href="/contact">
               {c.booking.questionLink}
             </a>

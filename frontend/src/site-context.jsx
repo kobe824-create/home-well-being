@@ -6,26 +6,32 @@ import {
   useState,
 } from "react";
 import defaults from "./site-defaults.json";
+import copyMigrations from "./site-copy-migrations.json";
 import { apiRequest } from "./api";
 
-const legacyHomeImage = "/images/rwanda-home.jpg";
-const replacementHomeCredit = defaults.photography.items.find(
-  (item) => item.image === "/images/kigali-home-care.webp",
-);
+const retiredPhotoPaths = new Set([
+  "/images/kigali-home-care.webp",
+  "/images/home-driver.webp",
+  "/images/rwanda-home.jpg",
+]);
 function mergeValue(base, saved, path = "") {
   if (saved === undefined || saved === null) return structuredClone(base);
   if (Array.isArray(base))
     if (!Array.isArray(saved)) return structuredClone(base);
-    else if (path === "photography.items")
+    else if (path === "photography.items") {
+      const currentPhotos = saved.filter(
+        (item) => !retiredPhotoPaths.has(item?.image),
+      );
       return Array.from(
-        { length: Math.max(base.length, saved.length) },
+        { length: Math.max(base.length, currentPhotos.length) },
         (_, index) =>
           mergeValue(
             base[index] ?? base[0],
-            saved[index],
+            currentPhotos[index],
             `${path}.${index}`,
           ),
       );
+    }
     else return structuredClone(saved);
   if (base && typeof base === "object")
     return Object.fromEntries(
@@ -36,32 +42,34 @@ function mergeValue(base, saved, path = "") {
     );
   return typeof saved === typeof base ? saved : base;
 }
-function migrateLegacyHomeImages(value, path = "") {
+function migratePublishedCopy(value, path = "") {
   if (Array.isArray(value))
     return value.map((item, index) =>
-      path === "photography.items" &&
-      item?.image === legacyHomeImage &&
-      replacementHomeCredit
-        ? structuredClone(replacementHomeCredit)
-        : migrateLegacyHomeImages(item, `${path}.${index}`),
+      migratePublishedCopy(item, `${path}.${index}`),
     );
   if (value && typeof value === "object")
     return Object.fromEntries(
       Object.entries(value).map(([key, item]) => [
         key,
-        migrateLegacyHomeImages(item, path ? `${path}.${key}` : key),
+        migratePublishedCopy(item, path ? `${path}.${key}` : key),
       ]),
     );
-  if (value === legacyHomeImage) return "/images/kigali-home-care.webp";
-  if (
-    value ===
-    "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road."
-  )
-    return "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.";
-  if (value === "A view of homes in Nyabihu, Rwanda.")
-    return "An illustrative home-care moment in a modest Kigali setting.";
-  if (typeof value === "string" && value.includes("Noemi Ciucci / Wikimedia"))
-    return "Illustrative Kigali home-care image created for this website; it does not depict a real property or identified person.";
+  const migration = copyMigrations[path];
+  if (typeof value === "string" && migration?.from === value)
+    return migration.to;
+  if (typeof value !== "string") return value;
+  if (value === "/images/kigali-home-care.webp" || value === "/images/rwanda-home.jpg")
+    return "/images/community-care.jpg";
+  if (value === "/images/home-driver.webp")
+    return path === "home.homeImage" ? "/images/care-at-home.jpg" : "/images/community-care.jpg";
+  if (value.startsWith("Illustrative scene of a home care worker"))
+    return "A Black family spending time together at home.";
+  if (value.startsWith("Illustrative scene of a home driver"))
+    return "An older Black man smiling at home.";
+  if (value.startsWith("Illustrative Kigali home-care image created for this website"))
+    return "";
+  if (value.startsWith("An illustrative home-care moment"))
+    return "The people and routines that make a home feel like yours.";
   return value;
 }
 export function mergeSiteContent(base, saved) {
@@ -75,7 +83,7 @@ export function mergeSiteContent(base, saved) {
       `services.${service.id}`,
     ),
   );
-  return migrateLegacyHomeImages(result);
+  return migratePublishedCopy(result);
 }
 const SiteContentContext = createContext({
   content: defaults,

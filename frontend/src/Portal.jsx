@@ -1083,13 +1083,13 @@ export default function Portal({
                     </div>
                     <figure className="pc-care-photo">
                       <img
-                        src={client ? "/images/kigali-home-care.webp" : "/images/community-care.jpg"}
-                        alt={client ? "Illustrative home-care scene in a modest Kigali home." : "Black parents and children sharing time on a sofa."}
+                        src="/images/community-care.jpg"
+                        alt="A Black family sharing time together at home."
                       />
                       <figcaption>
                         <span>EVERYDAY LIFE, AT THE HEART OF OUR WORK</span>
                         <p>For the everyday.<br /><em>And the people in it.</em></p>
-                        <a className="pc-photo-credit" href="/photo-credits">{client ? "Rwanda photo: Noemi Ciucci · CC BY-SA 4.0" : "Photo credits"}</a>
+                        <a className="pc-photo-credit" href="/photo-credits">Photo credits</a>
                       </figcaption>
                     </figure>
                   </section>

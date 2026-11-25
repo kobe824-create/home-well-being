@@ -72,18 +72,6 @@
     "changes": "Downloaded in a smaller compressed web size from Pexels; the source photograph is black and white."
   },
   {
-    "file": "/images/kigali-home-care.webp",
-    "title": "An illustrative home-care moment",
-    "author": "Wellness Home Care & Assistance",
-    "sourceUrl": "",
-    "license": "Illustrative image created for this website",
-    "licenseUrl": "",
-    "alt": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
-    "location": "Illustrative Kigali setting",
-    "dateTaken": "",
-    "changes": "Illustrative image created for the website. It does not depict an identified family, staff member or property."
-  },
-  {
     "file": "/images/home-cleaning.jpg",
     "title": "Home cleaning background video loop",
     "author": "Gustavo Fring",
@@ -95,17 +83,5 @@
     "dateTaken": "",
     "changes": "A muted 540p, 18-second loop from this Pexels clip (about 1.3 MB). It plays only when reduced motion is off and data-saver mode is disabled.",
     "mediaType": "video"
-  },
-  {
-    "file": "/images/home-driver.webp",
-    "title": "An illustrative home-driver service scene",
-    "author": "Wellness Home Care & Assistance",
-    "sourceUrl": "",
-    "license": "Illustrative image created for this website",
-    "licenseUrl": "",
-    "alt": "Illustrative scene of a home driver beside an ordinary family car outside a modest Kigali home. The person and property are not a real Wellness employee or customer.",
-    "location": "Illustrative Kigali setting",
-    "dateTaken": "",
-    "changes": "Illustrative image created for the website. It does not depict an identified driver or property."
   }
 ]
