@@ -130,7 +130,7 @@ function normalizeNode(value, template, path, budget) {
             item?.slug !== template[index].slug,
         )
       )
-        bad(path, "keep the five service categories and their links.");
+        bad(path, "keep all configured service categories and their links.");
       return template.map((item, index) =>
         normalizeNode(value[index], item, `${path}.${index}`, budget),
       );
@@ -236,6 +236,16 @@ function mergeNode(template, value, path) {
         ),
       );
     if (value.length > 30) return clone(template);
+    if (path === "photography.items")
+      return Array.from(
+        { length: Math.max(template.length, value.length) },
+        (_, index) =>
+          mergeNode(
+            template[index] ?? template[0],
+            value[index],
+            `${path}.${index}`,
+          ),
+      );
     return value.map((item, index) =>
       mergeNode(template[index] ?? template[0], item, `${path}.${index}`),
     );
@@ -255,7 +265,40 @@ function mergeNode(template, value, path) {
   );
 }
 export function mergeSiteContent(saved) {
-  return mergeNode(DEFAULT_SITE_CONTENT, migrateLegacy(saved), "");
+  const content = mergeNode(DEFAULT_SITE_CONTENT, migrateLegacy(saved), "");
+  const legacyImage = "/images/rwanda-home.jpg";
+  const replacementCredit = DEFAULT_SITE_CONTENT.photography.items.find(
+    (item) => item.image === "/images/kigali-home-care.webp",
+  );
+  function migrateHomeImages(value, path = "") {
+    if (Array.isArray(value))
+      return value.map((item, index) =>
+        path === "photography.items" &&
+        item?.image === legacyImage &&
+        replacementCredit
+          ? clone(replacementCredit)
+          : migrateHomeImages(item, `${path}.${index}`),
+      );
+    if (isObject(value))
+      return Object.fromEntries(
+        Object.entries(value).map(([key, item]) => [
+          key,
+          migrateHomeImages(item, path ? `${path}.${key}` : key),
+        ]),
+      );
+    if (value === legacyImage) return "/images/kigali-home-care.webp";
+    if (
+      value ===
+      "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road."
+    )
+      return "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.";
+    if (value === "A view of homes in Nyabihu, Rwanda.")
+      return "An illustrative home-care moment in a modest Kigali setting.";
+    if (typeof value === "string" && value.includes("Noemi Ciucci / Wikimedia"))
+      return "Illustrative Kigali home-care image created for this website; it does not depict a real property or identified person.";
+    return value;
+  }
+  return migrateHomeImages(content);
 }
 let publishedContent = clone(DEFAULT_SITE_CONTENT);
 let publicationRevision = 0;

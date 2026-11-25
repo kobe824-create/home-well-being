@@ -8,6 +8,7 @@ const SERVICES = {
   childcare: "Babysitting & childcare",
   cooking: "Home cooking",
   cleaning: "Home cleaning",
+  driving: "Home drivers",
   security: "Home security check",
 };
 const STATUSES = [
@@ -1082,8 +1083,8 @@ export default function Portal({
                     </div>
                     <figure className="pc-care-photo">
                       <img
-                        src={client ? "/images/rwanda-home.jpg" : "/images/community-care.jpg"}
-                        alt={client ? "Ordinary homes in Kora village, Nyabihu District, Rwanda." : "Black parents and children sharing time on a sofa."}
+                        src={client ? "/images/kigali-home-care.webp" : "/images/community-care.jpg"}
+                        alt={client ? "Illustrative home-care scene in a modest Kigali home." : "Black parents and children sharing time on a sofa."}
                       />
                       <figcaption>
                         <span>EVERYDAY LIFE, AT THE HEART OF OUR WORK</span>
@@ -3209,6 +3210,23 @@ export default function Portal({
                 </p>
               </div>
             )}
+            {selected.service === "driving" &&
+              (selected.service_details || selected.serviceDetails)
+                ?.vehicleArrangement && (
+                <div className="pc-detail-note">
+                  <strong>Vehicle arrangement</strong>
+                  <p>
+                    {{
+                      discuss: "Discuss with the team",
+                      "household-vehicle": "Household can provide a vehicle",
+                      "driver-vehicle": "Customer requests a driver with a vehicle",
+                    }[
+                      (selected.service_details || selected.serviceDetails)
+                        .vehicleArrangement
+                    ] || "Discuss with the team"}
+                  </p>
+                </div>
+              )}
             {manager && (
               <>
                 <div className="pc-drawer-section">

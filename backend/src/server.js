@@ -109,6 +109,7 @@ const serviceLabels = {
   childcare: "Babysitting & childcare",
   cooking: "Home cooking",
   cleaning: "Home cleaning",
+  driving: "Home drivers",
   security: "Home security check",
 };
 const requestStatuses = [
@@ -1433,6 +1434,16 @@ app.post(
         };
       if (service === "cooking")
         safeDetails = { ...safeDetails, people: Number(details.people) };
+      if (service === "driving") {
+        const vehicleArrangement = [
+          "discuss",
+          "household-vehicle",
+          "driver-vehicle",
+        ].includes(cleanString(details.vehicleArrangement))
+          ? cleanString(details.vehicleArrangement)
+          : "discuss";
+        safeDetails = { ...safeDetails, vehicleArrangement };
+      }
       let householdId = cleanString(body.householdId) || null;
       let clientUserId = req.user?.role === "CLIENT" ? req.user.id : null;
       if (householdId) {

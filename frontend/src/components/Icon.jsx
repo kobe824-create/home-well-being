@@ -145,6 +145,13 @@ const paths = {
       <path d="M4 11h16l-2 10H6ZM8 3v4m4-4v4m4-4v4M2 11h20" />
     </>
   ),
+  car: (
+    <>
+      <path d="m5 11 1.5-5h11L19 11M4 11h16l1.3 3.2a2 2 0 0 1-1.9 2.8H4.6a2 2 0 0 1-1.9-2.8ZM5 17v2m14-2v2" />
+      <circle cx="7" cy="14" r=".7" />
+      <circle cx="17" cy="14" r=".7" />
+    </>
+  ),
 };
 const aliases = {
   "map-pin": "map",

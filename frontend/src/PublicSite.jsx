@@ -147,11 +147,9 @@ function Footer() {
           {b.phone && <a href={`tel:${b.phone}`}>{b.phoneDisplay}</a>}
           {b.email && <a href={`mailto:${b.email}`}>{b.email}</a>}
           {b.address && <p>{b.address}</p>}
-          {b.whatsapp && (
-            <a href={`https://wa.me/${b.whatsapp.replace(/\D/g, "")}`}>
-              WhatsApp
-            </a>
-          )}
+          <WhatsAppLink business={b} className="v2-whatsapp-link">
+            Chat on WhatsApp
+          </WhatsAppLink>
         </div>
       </div>
       <div className="container v2-footer-bottom">
@@ -170,6 +168,34 @@ function Footer() {
     </footer>
   );
 }
+function whatsappHref(business) {
+  const digits = String(business.whatsapp || business.phone || "").replace(
+    /\D/g,
+    "",
+  );
+  const phone = digits.startsWith("0") ? `250${digits.slice(1)}` : digits;
+  if (!phone) return "";
+  const message = encodeURIComponent(
+    "Hello, I would like to learn more about your home care and assistance services.",
+  );
+  return `https://wa.me/${phone}?text=${message}`;
+}
+function WhatsAppLink({ business, className = "", children }) {
+  const href = whatsappHref(business);
+  if (!href) return null;
+  return (
+    <a
+      className={className}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open a WhatsApp chat with ${business.name}`}
+    >
+      {children || "Chat on WhatsApp"}
+      <Icon name="message" size={18} />
+    </a>
+  );
+}
 function Media({
   image,
   alt,
@@ -178,7 +204,54 @@ function Media({
   videoTitle,
   className = "",
   eager = false,
+  autoplay = false,
 }) {
+  const [canAutoplay, setCanAutoplay] = useState(false);
+  useEffect(() => {
+    if (!autoplay || !video) return undefined;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = navigator.connection;
+    const update = () =>
+      setCanAutoplay(
+        !motion.matches &&
+          !connection?.saveData &&
+          !["slow-2g", "2g"].includes(connection?.effectiveType),
+      );
+    update();
+    motion.addEventListener?.("change", update);
+    connection?.addEventListener?.("change", update);
+    return () => {
+      motion.removeEventListener?.("change", update);
+      connection?.removeEventListener?.("change", update);
+    };
+  }, [autoplay, video]);
+  if (video && autoplay) {
+    if (!canAutoplay)
+      return (
+        <img
+          className={className}
+          src={image}
+          alt={alt || ""}
+          loading={eager ? "eager" : "lazy"}
+          decoding="async"
+        />
+      );
+    return (
+      <video
+        className={className}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="none"
+        poster={videoPoster || image}
+        aria-hidden="true"
+        key={video}
+      >
+        <source src={video} type="video/mp4" />
+      </video>
+    );
+  }
   return video ? (
     <video
       className={className}
@@ -215,11 +288,10 @@ function PageIntro({ data }) {
 }
 function PhotoCredit({ image }) {
   const { content: c } = useSiteContent();
-  if (image !== "/images/rwanda-home.jpg") return null;
+  if (image !== "/images/kigali-home-care.webp") return null;
   return (
     <a className="v2-photo-credit" href="/photo-credits">
-      {c.photography?.rwandaCredit ||
-        "Rwanda photograph: Noemi Ciucci · CC BY-SA 4.0"}
+      {c.photography?.rwandaCredit || "About this illustrative image"}
     </a>
   );
 }
@@ -333,7 +405,15 @@ function Home() {
           </div>
           <div className="v2-hero-photos">
             <figure className="v2-family-photo">
-              <Media image={h.image} alt={h.imageAlt} eager />
+              <Media
+                image={h.image}
+                alt={h.imageAlt}
+                video={h.video}
+                videoPoster={h.videoPoster}
+                videoTitle={h.videoTitle}
+                autoplay
+                eager
+              />
               <figcaption>{h.imageCaption}</figcaption>
             </figure>
             <figure className="v2-home-photo">
@@ -545,12 +625,10 @@ function Contact() {
                 <strong>{b.hours}</strong>
               </>
             )}
-            {b.whatsapp && (
-              <a href={`https://wa.me/${b.whatsapp.replace(/\D/g, "")}`}>
-                WhatsApp
-              </a>
-            )}
           </div>
+          <WhatsAppLink business={b} className="v2-whatsapp-link">
+            Message Mary on WhatsApp
+          </WhatsAppLink>
           <figure>
             <img src={d.image} alt={d.imageAlt} loading="lazy" />
             <PhotoCredit image={d.image} />
@@ -696,13 +774,19 @@ function Credits() {
                 {p.location ? ` · ${p.location}` : ""}
               </p>
               <p>
-                <a href={p.sourceUrl} target="_blank" rel="noreferrer">
-                  Original photograph
-                </a>{" "}
-                ·{" "}
-                <a href={p.licenseUrl} target="_blank" rel="noreferrer">
-                  {p.license}
-                </a>
+                {p.sourceUrl && (
+                  <a href={p.sourceUrl} target="_blank" rel="noreferrer">
+                    {p.mediaType === "video" ? "Original video" : "Original photograph"}
+                  </a>
+                )}
+                {p.sourceUrl && p.license && " · "}
+                {p.licenseUrl ? (
+                  <a href={p.licenseUrl} target="_blank" rel="noreferrer">
+                    {p.license}
+                  </a>
+                ) : (
+                  p.license
+                )}
               </p>
               <small>
                 {p.note ||

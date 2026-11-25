@@ -32,6 +32,7 @@ export default function BookingForm({ selectedService = "", user = null }) {
     notes: "",
     ageRange: "",
     people: "2",
+    vehicleArrangement: "discuss",
     contactConsent: false,
     guardianAuthorization: false,
     website: "",
@@ -78,6 +79,9 @@ export default function BookingForm({ selectedService = "", user = null }) {
               : {}),
             ...(values.service === "elderly"
               ? { supportTypes: ["Agreed daily activities"] }
+              : {}),
+            ...(values.service === "driving"
+              ? { vehicleArrangement: values.vehicleArrangement }
               : {}),
           },
         }),
@@ -177,6 +181,12 @@ export default function BookingForm({ selectedService = "", user = null }) {
               available.
             </p>
           )}
+          {values.service === "driving" && (
+            <p className="fine-print">
+              Driver availability, licence, vehicle and insurance arrangements
+              must be confirmed with our team before any journey is booked.
+            </p>
+          )}
         </>
       )}
       {step === 1 && (
@@ -249,6 +259,25 @@ export default function BookingForm({ selectedService = "", user = null }) {
                   value={values.people}
                   onChange={set("people")}
                 />
+              </Field>
+            )}
+            {values.service === "driving" && (
+              <Field
+                label="Vehicle arrangement"
+                hint="We will confirm the driver, vehicle and insurance before agreeing a trip."
+              >
+                <select
+                  value={values.vehicleArrangement}
+                  onChange={set("vehicleArrangement")}
+                >
+                  <option value="discuss">Discuss with the team</option>
+                  <option value="household-vehicle">
+                    My household can provide a vehicle
+                  </option>
+                  <option value="driver-vehicle">
+                    I need a driver with a vehicle
+                  </option>
+                </select>
               </Field>
             )}
             <Field

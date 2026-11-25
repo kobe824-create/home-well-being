@@ -8,7 +8,7 @@
     "phoneDisplay": "0785706884",
     "phone": "+250785706884",
     "email": "u.mary@ddin.rw",
-    "whatsapp": "",
+    "whatsapp": "+250785706884",
     "address": "Kigali, Rwanda",
     "hours": "",
     "serviceAreas": "Kigali",
@@ -34,24 +34,24 @@
     "intro": "A caring hand for your loved ones. Help with the everyday. We bring thoughtful home support to families in Kigali, with the details agreed together.",
     "primaryAction": "Find the help you need",
     "secondaryAction": "Talk to Mary",
-    "image": "/images/community-care.jpg",
-    "imageAlt": "A Black family of five smiling together on a living room sofa.",
-    "imageCaption": "Room for the moments that matter.",
-    "homeImage": "/images/rwanda-home.jpg",
-    "homeImageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
-    "homeImageCaption": "A view of homes in Nyabihu, Rwanda.",
+    "image": "/images/home-cleaning.jpg",
+    "imageAlt": "A Black home-care worker vacuuming a living room.",
+    "imageCaption": "Practical help, around your routine.",
+    "homeImage": "/images/home-driver.webp",
+    "homeImageAlt": "Illustrative scene of a home driver beside an ordinary family car outside a modest Kigali home. The person and property are not a real Wellness employee or customer.",
+    "homeImageCaption": "A trusted driver to help you get there.",
     "servicesEyebrow": "A helping hand, your way",
     "servicesTitle": "For the people you love.\nFor the home you share.",
-    "servicesIntro": "Five ways to bring a little more ease into your day. We start by listening, then agree the right person, tasks and schedule.",
+    "servicesIntro": "Six ways to bring a little more ease into your day. We start by listening, then agree the right person, tasks and schedule.",
     "story": {
       "eyebrow": "Built around real life",
       "title": "Every home has\nits own rhythm.",
       "body": "Children coming home from school. A parent who enjoys a familiar face. A kitchen that needs an extra pair of hands. Your routines come first; our role is to find support that fits them.",
-      "image": "/images/rwanda-home.jpg",
-      "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
-      "caption": "Photo: Noemi Ciucci / Wikimedia Commons, CC BY-SA 4.0.",
+      "image": "/images/kigali-home-care.webp",
+      "imageAlt": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
+      "caption": "An illustrative home-care moment in a modest Kigali setting.",
       "video": "",
-      "videoPoster": "/images/rwanda-home.jpg",
+      "videoPoster": "/images/kigali-home-care.webp",
       "videoTitle": "A closer look at life at home",
       "videoCaption": "A short introduction from our team."
     },
@@ -84,17 +84,20 @@
       }
     ],
     "joinTitle": "You know how to care.\nWe would like to meet you.",
-    "joinText": "Bring your experience, your skills and the pride you take in a job well done. Explore opportunities across our five services.",
+    "joinText": "Bring your experience, your skills and the pride you take in a job well done. Explore opportunities across our six services.",
     "joinImage": "/images/home-cleaning.jpg",
     "joinImageAlt": "A Black woman wearing orange gloves and wiping a table with a cloth.",
-    "joinButton": "Work with Wellness"
+    "joinButton": "Work with Wellness",
+    "video": "/videos/home-cleaning-loop.mp4",
+    "videoPoster": "/images/home-cleaning.jpg",
+    "videoTitle": "A Black home-care worker cleaning a living room."
   },
   "servicesPage": {
     "eyebrow": "Help that fits your household",
     "title": "People cared for.\nHomes looked after.",
-    "intro": "From companionship and childcare to cooking, cleaning and security: choose what your household needs and let us talk it through.",
-    "image": "/images/rwanda-home.jpg",
-    "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "intro": "From companionship and childcare to cooking, cleaning, home driving and security: choose what your household needs and let us talk it through.",
+    "image": "/images/kigali-home-care.webp",
+    "imageAlt": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
     "scopeTitle": "The right support starts with the details.",
     "scopeText": "Every request is reviewed. We agree the person, duties, schedule, price and service boundaries with you before confirming."
   },
@@ -184,6 +187,27 @@
       "videoTitle": "Home cleaning video"
     },
     {
+      "id": "driving",
+      "slug": "home-drivers",
+      "title": "Home drivers",
+      "short": "A dependable ride, arranged around your day.",
+      "icon": "car",
+      "image": "/images/home-driver.webp",
+      "alt": "Illustrative scene of a home driver beside an ordinary family car outside a modest Kigali home. The person and property are not a real Wellness employee or customer.",
+      "description": "A professional driver for everyday journeys, appointments and family errands, with routes and vehicle arrangements agreed before confirmation.",
+      "includes": [
+        "A driver for planned household journeys",
+        "Pick-up times and route discussed in advance",
+        "Vehicle arrangements confirmed with the family",
+        "Clear updates before and after each trip"
+      ],
+      "boundaries": "Driver licence, availability, vehicle, insurance and journey details must be reviewed and agreed before any trip is confirmed. A request is not a confirmed ride.",
+      "prepare": "Share the preferred date, time and general area. Keep exact addresses and sensitive travel details for a private conversation with our team.",
+      "video": "",
+      "videoPoster": "/images/home-driver.webp",
+      "videoTitle": "Home driver service"
+    },
+    {
       "id": "security",
       "slug": "home-security",
       "title": "Home security",
@@ -259,8 +283,8 @@
     "eyebrow": "Let us find the right support",
     "title": "What would make\nyour day easier?",
     "intro": "Send a request. Our team will contact you to work through the details and confirm availability.",
-    "image": "/images/rwanda-home.jpg",
-    "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "image": "/images/kigali-home-care.webp",
+    "imageAlt": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
     "asideTitle": "Your home.\nYour kind of help.",
     "asideText": "Share the neighbourhood and a short outline here. Full addresses, care instructions and private information belong in your household account.",
     "assurances": [
@@ -275,7 +299,7 @@
   "provider": {
     "eyebrow": "Work you can take pride in",
     "title": "Your skills can make\nsomeone’s day better.",
-    "intro": "We welcome people with experience in care, childcare, cooking, cleaning and household security. Tell us what you do well.",
+    "intro": "We welcome people with experience in care, childcare, cooking, cleaning, home driving and household security. Tell us what you do well.",
     "image": "/images/home-cleaning.jpg",
     "imageAlt": "A Black home-support professional.",
     "sidebarTitle": "Good people.\nMeaningful work.",
@@ -299,8 +323,8 @@
     "eyebrow": "A real conversation helps",
     "title": "Let us talk\nabout your home.",
     "intro": "A first question, a change in plans, or a particular kind of help. Mary and the team are here to listen.",
-    "image": "/images/rwanda-home.jpg",
-    "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "image": "/images/kigali-home-care.webp",
+    "imageAlt": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
     "formTitle": "Leave a note for Mary",
     "successTitle": "Your message is with our team.",
     "successText": "Thank you for getting in touch. We will follow up using the contact details you provided.",
@@ -519,7 +543,7 @@
   "photography": {
     "title": "The people and places in our photographs.",
     "note": "Our photographs help show the kinds of home and community settings that inform this service. Unless a caption says otherwise, people shown are not identified as Wellness staff or customers.",
-    "rwandaCredit": "Photo: Noemi Ciucci / Wikimedia Commons, CC BY-SA 4.0.",
+    "rwandaCredit": "Illustrative Kigali home-care image created for this website; it does not depict a real property or identified person.",
     "items": [
       {
         "image": "/images/community-care.jpg",
@@ -606,18 +630,47 @@
         "note": "Downloaded in a smaller compressed web size from Pexels; the source photograph is black and white."
       },
       {
-        "image": "/images/rwanda-home.jpg",
-        "title": "Kora village, Nyabihu district in Rwanda, 2021",
-        "author": "Noemi Ciucci",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kora_village,_Nyabihu_district_in_Rwanda,_2021.jpg",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-        "alt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
-        "location": "Kora village, Nyabihu District, Western Province, Rwanda",
-        "dateTaken": "2021-11-05",
-        "caption": "A view of homes in Nyabihu, Rwanda.",
-        "attribution": "Photo: Noemi Ciucci / Wikimedia Commons, CC BY-SA 4.0.",
-        "note": "Downloaded Wikimedia's reduced 1280-pixel JPEG thumbnail; no crop or content alteration. CSS may crop the displayed frame."
+        "image": "/images/kigali-home-care.webp",
+        "title": "An illustrative home-care moment",
+        "author": "Wellness Home Care & Assistance",
+        "sourceUrl": "",
+        "license": "Illustrative image created for this website",
+        "licenseUrl": "",
+        "alt": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
+        "location": "Illustrative Kigali setting",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Illustrative image created for the website. It does not depict an identified family, staff member or property."
+      },
+      {
+        "mediaType": "video",
+        "image": "/images/home-cleaning.jpg",
+        "title": "Home cleaning background video loop",
+        "author": "Gustavo Fring",
+        "sourceUrl": "https://www.pexels.com/video/a-woman-vacuuming-the-floor-6496244/",
+        "license": "Pexels License",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "alt": "Black woman cleaning a living room with a vacuum cleaner.",
+        "location": "",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "An 18-second, muted, compressed 540p loop from this Pexels clip (about 1.3 MB). It plays only when motion is allowed and data-saver mode is off."
+      },
+      {
+        "image": "/images/home-driver.webp",
+        "title": "An illustrative home-driver service scene",
+        "author": "Wellness Home Care & Assistance",
+        "sourceUrl": "",
+        "license": "Illustrative image created for this website",
+        "licenseUrl": "",
+        "alt": "Illustrative scene of a home driver beside an ordinary family car outside a modest Kigali home. The person and property are not a real Wellness employee or customer.",
+        "location": "Illustrative Kigali setting",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Illustrative image created for the website. It does not depict an identified driver or property."
       }
     ]
   },
@@ -628,7 +681,7 @@
     },
     "services": {
       "title": "Home support services in Kigali",
-      "description": "From companionship and childcare to cooking, cleaning and security: choose what your household needs and let us talk it through."
+      "description": "From companionship and childcare to cooking, cleaning, home driving and security: choose what your household needs and let us talk it through."
     },
     "howItWorks": {
       "title": "How home care works",
@@ -644,7 +697,7 @@
     },
     "provider": {
       "title": "Join our home support team",
-      "description": "We welcome people with experience in care, childcare, cooking, cleaning and household security. Tell us what you do well."
+      "description": "We welcome people with experience in care, childcare, cooking, cleaning, home driving and household security. Tell us what you do well."
     },
     "contact": {
       "title": "Contact Wellness",

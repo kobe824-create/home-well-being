@@ -30,19 +30,19 @@
   font-display: swap;
 }
 :root {
-  --ink: #183d36;
-  --forest: #153e35;
-  --accent: #bf542f;
-  --paper: #f6f7f4;
-  --muted: #697872;
-  --line: #dce3dc;
+  --ink: #211f38;
+  --forest: #29254f;
+  --accent: #cb4e88;
+  --paper: #f8f7fc;
+  --muted: #6d6a7c;
+  --line: #e0deeb;
   --white: #fff;
-  --soft-green: #eaf0e7;
+  --soft-green: #f0eef8;
   --radius: 12px;
   font-family: "DM Sans", sans-serif;
   font-synthesis: none;
   color: var(--ink);
-  background: #fcfdfa;
+  background: #fbfaff;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
@@ -126,7 +126,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #d5904d;
+  outline: 3px solid #d96e9b;
   outline-offset: 4px;
 }
 hr {
@@ -180,10 +180,10 @@ hr {
   color: #fff;
 }
 .button-primary:hover {
-  background: #a94223;
+  background: #ae3d72;
 }
 .button-outline {
-  border-color: #b9c8bc;
+  border-color: #c9c4dc;
   background: transparent;
   color: var(--ink);
 }
