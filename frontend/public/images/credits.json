@@ -1,0 +1,91 @@
+[
+  {
+    "file": "/images/community-care.jpg",
+    "title": "Smiling black family resting on couch",
+    "author": "Monstera Production",
+    "sourceUrl": "https://www.pexels.com/photo/smiling-black-family-resting-on-couch-7114420/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "alt": "A Black family of five smiling together on a living room sofa.",
+    "width": 1200,
+    "height": 800,
+    "changes": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+  },
+  {
+    "file": "/images/care-at-home.jpg",
+    "title": "An Elderly Man in a Button Up Shirt",
+    "author": "Kampus Production",
+    "sourceUrl": "https://www.pexels.com/photo/an-elderly-man-in-a-button-up-shirt-8441881/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "alt": "A smiling older Black man wearing glasses and a pink shirt, seated indoors.",
+    "location": "Portugal",
+    "width": 1200,
+    "height": 800,
+    "changes": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+  },
+  {
+    "file": "/images/childcare.jpg",
+    "title": "Mother Playing with Son at Home",
+    "author": "Mizuno K",
+    "sourceUrl": "https://www.pexels.com/photo/mother-playing-with-son-at-home-12788421/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "alt": "A Black mother and her young son playing with colorful toys on a rug at home.",
+    "width": 1200,
+    "height": 1800,
+    "changes": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+  },
+  {
+    "file": "/images/home-cooking.jpg",
+    "title": "Portrait of a Woman Cooking",
+    "author": "Mizuno K",
+    "sourceUrl": "https://www.pexels.com/photo/portrait-of-a-woman-cooking-12911577/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "alt": "A Black woman preparing eggs in a frying pan in a home kitchen.",
+    "width": 1200,
+    "height": 1800,
+    "changes": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+  },
+  {
+    "file": "/images/home-cleaning.jpg",
+    "title": "A Woman in Gray Sweater Wiping the Table",
+    "author": "Tima Miroshnichenko",
+    "sourceUrl": "https://www.pexels.com/photo/a-woman-in-gray-sweater-wiping-the-table-6197046/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "alt": "A Black woman wearing orange gloves and wiping a table with a cloth.",
+    "width": 1200,
+    "height": 800,
+    "changes": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+  },
+  {
+    "file": "/images/home-security.jpg",
+    "title": "Black and White Security Gate Scene Outdoors",
+    "author": "Olaseni Omoare",
+    "sourceUrl": "https://www.pexels.com/photo/black-and-white-security-gate-scene-outdoors-33797919/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "alt": "A black and white photograph of two Black security guards standing beside an open metal gate.",
+    "width": 1200,
+    "height": 900,
+    "changes": "Downloaded in a smaller compressed web size from Pexels; the source photograph is black and white."
+  },
+  {
+    "file": "/images/rwanda-home.jpg",
+    "title": "Kora village, Nyabihu district in Rwanda, 2021",
+    "author": "Noemi Ciucci",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kora_village,_Nyabihu_district_in_Rwanda,_2021.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "alt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "location": "Kora village, Nyabihu District, Western Province, Rwanda",
+    "dateTaken": "2021-11-05",
+    "width": 1280,
+    "height": 853,
+    "changes": "Downloaded Wikimedia's reduced 1280-pixel JPEG thumbnail; no crop or content alteration. CSS may crop the displayed frame.",
+    "caption": "A view of homes in Nyabihu, Rwanda.",
+    "attribution": "Photo: Noemi Ciucci / Wikimedia Commons, CC BY-SA 4.0."
+  }
+]

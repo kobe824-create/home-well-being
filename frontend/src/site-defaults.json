@@ -1,0 +1,658 @@
+{
+  "version": 2,
+  "business": {
+    "name": "Wellness Home Care & Assistance",
+    "shortName": "wellness",
+    "tagline": "HOME CARE & ASSISTANCE",
+    "logo": "",
+    "phoneDisplay": "0785706884",
+    "phone": "+250785706884",
+    "email": "u.mary@ddin.rw",
+    "whatsapp": "",
+    "address": "Kigali, Rwanda",
+    "hours": "",
+    "serviceAreas": "Kigali",
+    "logoAlt": "Wellness Home Care & Assistance",
+    "favicon": ""
+  },
+  "navigation": {
+    "announcement": "Good help begins with a conversation.",
+    "location": "Kigali, Rwanda",
+    "services": "Our services",
+    "howItWorks": "How it works",
+    "about": "Our story",
+    "join": "Work with us",
+    "contact": "Contact",
+    "signIn": "Sign in",
+    "workspace": "My workspace",
+    "book": "Find support"
+  },
+  "home": {
+    "eyebrow": "Here for your people. Here for your home.",
+    "title": "Life at home,",
+    "emphasis": "a little easier.",
+    "intro": "A caring hand for your loved ones. Help with the everyday. We bring thoughtful home support to families in Kigali, with the details agreed together.",
+    "primaryAction": "Find the help you need",
+    "secondaryAction": "Talk to Mary",
+    "image": "/images/community-care.jpg",
+    "imageAlt": "A Black family of five smiling together on a living room sofa.",
+    "imageCaption": "Room for the moments that matter.",
+    "homeImage": "/images/rwanda-home.jpg",
+    "homeImageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "homeImageCaption": "A view of homes in Nyabihu, Rwanda.",
+    "servicesEyebrow": "A helping hand, your way",
+    "servicesTitle": "For the people you love.\nFor the home you share.",
+    "servicesIntro": "Five ways to bring a little more ease into your day. We start by listening, then agree the right person, tasks and schedule.",
+    "story": {
+      "eyebrow": "Built around real life",
+      "title": "Every home has\nits own rhythm.",
+      "body": "Children coming home from school. A parent who enjoys a familiar face. A kitchen that needs an extra pair of hands. Your routines come first; our role is to find support that fits them.",
+      "image": "/images/rwanda-home.jpg",
+      "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+      "caption": "Photo: Noemi Ciucci / Wikimedia Commons, CC BY-SA 4.0.",
+      "video": "",
+      "videoPoster": "/images/rwanda-home.jpg",
+      "videoTitle": "A closer look at life at home",
+      "videoCaption": "A short introduction from our team."
+    },
+    "valuesTitle": "A person to talk to.\nA plan you understand.",
+    "values": [
+      {
+        "title": "Start with a conversation",
+        "text": "Tell us what would make a difference. Mary and the team help you work through the details."
+      },
+      {
+        "title": "Meet the right support",
+        "text": "Experience, references, service suitability and availability are reviewed before an assignment."
+      },
+      {
+        "title": "Keep in touch",
+        "text": "Follow your agreed visits, arrival updates and messages from your private family account."
+      }
+    ],
+    "galleryTitle": "More time for being together.",
+    "gallery": [
+      {
+        "image": "/images/childcare.jpg",
+        "alt": "A Black parent and child sharing time together.",
+        "caption": "A little breathing room for family life."
+      },
+      {
+        "image": "/images/home-cooking.jpg",
+        "alt": "A Black cook preparing food.",
+        "caption": "Good food, in your own kitchen."
+      }
+    ],
+    "joinTitle": "You know how to care.\nWe would like to meet you.",
+    "joinText": "Bring your experience, your skills and the pride you take in a job well done. Explore opportunities across our five services.",
+    "joinImage": "/images/home-cleaning.jpg",
+    "joinImageAlt": "A Black woman wearing orange gloves and wiping a table with a cloth.",
+    "joinButton": "Work with Wellness"
+  },
+  "servicesPage": {
+    "eyebrow": "Help that fits your household",
+    "title": "People cared for.\nHomes looked after.",
+    "intro": "From companionship and childcare to cooking, cleaning and security: choose what your household needs and let us talk it through.",
+    "image": "/images/rwanda-home.jpg",
+    "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "scopeTitle": "The right support starts with the details.",
+    "scopeText": "Every request is reviewed. We agree the person, duties, schedule, price and service boundaries with you before confirming."
+  },
+  "services": [
+    {
+      "id": "elderly",
+      "slug": "elderly-assistance",
+      "title": "Elderly home assistance",
+      "short": "A familiar face. A little more ease.",
+      "icon": "heart",
+      "image": "/images/care-at-home.jpg",
+      "alt": "A smiling older Black man wearing glasses and a pink shirt, seated indoors.",
+      "description": "Companionship and a helping hand with everyday routines, with respect for independence at every step.",
+      "includes": [
+        "Companionship and conversation",
+        "Meal assistance and everyday routines",
+        "Accompaniment agreed with your family",
+        "Updates after each visit"
+      ],
+      "boundaries": "Our assistance is non-medical. It does not include nursing, diagnosis, medication administration or emergency response.",
+      "prepare": "Tell us about the support required, accessibility and communication preferences. We agree specific duties with the family before confirming a visit.",
+      "video": "",
+      "videoPoster": "/images/care-at-home.jpg",
+      "videoTitle": "Elderly home assistance video"
+    },
+    {
+      "id": "childcare",
+      "slug": "babysitting-childcare",
+      "title": "Babysitting & childcare",
+      "short": "Their little world, thoughtfully cared for.",
+      "icon": "baby",
+      "image": "/images/childcare.jpg",
+      "alt": "A Black mother and her young son playing with colorful toys on a rug at home.",
+      "description": "Attentive support for your family’s everyday rhythm, with routines, responsibilities and handovers agreed together.",
+      "includes": [
+        "Supervision and age-appropriate play",
+        "Agreed meals and family routines",
+        "Parent-approved arrival and handover",
+        "Clear communication during the service"
+      ],
+      "boundaries": "Age suitability, service hours and provider screening are reviewed for each request. A parent or guardian must authorize care and agree handover contacts before confirmation.",
+      "prepare": "Choose the age range and preferred hours. Detailed care instructions and authorized contacts belong in your private household profile, not a public enquiry.",
+      "video": "",
+      "videoPoster": "/images/childcare.jpg",
+      "videoTitle": "Babysitting & childcare video"
+    },
+    {
+      "id": "cooking",
+      "slug": "home-cooking",
+      "title": "Home cooking",
+      "short": "Good food. One less thing on your list.",
+      "icon": "cooking",
+      "image": "/images/home-cooking.jpg",
+      "alt": "A Black woman preparing eggs in a frying pan in a home kitchen.",
+      "description": "Freshly prepared meals in your own kitchen, planned around what your household enjoys and needs.",
+      "includes": [
+        "Meal preparation in your home",
+        "Agreed meal-planning support",
+        "Preferences and dietary needs discussed",
+        "Kitchen handover after preparation"
+      ],
+      "boundaries": "Ingredients, kitchen equipment, cleaning materials and any additional costs are agreed before the booking. Food-handling suitability is part of provider review.",
+      "prepare": "Tell us how many people the meals are for, your meal preferences and who will supply ingredients. Discuss allergies privately with our team before service.",
+      "video": "",
+      "videoPoster": "/images/home-cooking.jpg",
+      "videoTitle": "Home cooking video"
+    },
+    {
+      "id": "cleaning",
+      "slug": "home-cleaning",
+      "title": "Home cleaning",
+      "short": "A fresh home. A lighter day.",
+      "icon": "home",
+      "image": "/images/home-cleaning.jpg",
+      "alt": "A Black woman wearing orange gloves and wiping a table with a cloth.",
+      "description": "Practical cleaning support for the spaces you use every day, with the rooms, tasks and supplies agreed in advance.",
+      "includes": [
+        "Routine room and surface cleaning",
+        "Kitchen and bathroom cleaning as agreed",
+        "A clear checklist for your home",
+        "Supplies and equipment agreed before arrival"
+      ],
+      "boundaries": "Specialist cleaning, hazardous materials and work at height need separate review. The team confirms tasks and equipment before the visit.",
+      "prepare": "Tell us the rooms and priorities. We will agree the checklist, supplies, access arrangements and time needed.",
+      "video": "",
+      "videoPoster": "/images/home-cleaning.jpg",
+      "videoTitle": "Home cleaning video"
+    },
+    {
+      "id": "security",
+      "slug": "home-security",
+      "title": "Home security",
+      "short": "A reassuring presence, thoughtfully arranged.",
+      "icon": "shield",
+      "image": "/images/home-security.jpg",
+      "alt": "A black and white photograph of two Black security guards standing beside an open metal gate.",
+      "description": "Discuss security support for your household, with suitable personnel, responsibilities and coverage reviewed before any arrangement is confirmed.",
+      "includes": [
+        "Household security needs review",
+        "Agreed access and visitor procedures",
+        "A clear duty schedule and handover",
+        "Incident reporting and household updates"
+      ],
+      "boundaries": "Security assignments require approved operating arrangements, suitable personnel and applicable licensing. A request is reviewed before availability and service scope are confirmed.",
+      "prepare": "Discuss the property, hours, access procedures and responsibilities with our team. Do not share alarm codes or detailed security arrangements in the public request form.",
+      "video": "",
+      "videoPoster": "/images/home-security.jpg",
+      "videoTitle": "Home security video"
+    }
+  ],
+  "howItWorks": {
+    "eyebrow": "A clear way to get started",
+    "title": "Tell us what would help.\nWe will take it from there.",
+    "intro": "You do not need to have every detail worked out. A conversation is a good beginning.",
+    "image": "/images/childcare.jpg",
+    "imageAlt": "A Black mother and her young son playing with colorful toys on a rug at home.",
+    "steps": [
+      {
+        "title": "Tell us about your home",
+        "text": "Choose a service and share your preferred area, date and hours. Keep private care details in your family account."
+      },
+      {
+        "title": "Work through the details",
+        "text": "We discuss the tasks, review suitable people and agree a quote and schedule."
+      },
+      {
+        "title": "Confirm your arrangement",
+        "text": "You know who is coming, what has been agreed and how to get in touch before the visit."
+      },
+      {
+        "title": "Stay connected",
+        "text": "See arrival and completion updates, manage invoices and share feedback in your account."
+      }
+    ],
+    "accountTitle": "Your family account keeps it together.",
+    "accountText": "Visits, care updates, invoices and messages. A clear view when you need one.",
+    "accountButton": "Create a family account"
+  },
+  "about": {
+    "eyebrow": "A local team, a personal approach",
+    "title": "Good support begins\nwith knowing people.",
+    "intro": "Wellness Home Care & Assistance helps families in Kigali find practical, thoughtful support for everyday life.",
+    "image": "/images/community-care.jpg",
+    "imageAlt": "A Black family of five smiling together on a living room sofa.",
+    "sections": [
+      {
+        "title": "Home is personal.",
+        "body": "Inviting someone into your home takes trust. We begin by understanding what matters to your household: the routines, people, priorities and boundaries."
+      },
+      {
+        "title": "Clarity makes a difference.",
+        "body": "We review service suitability and worker requirements, agree duties and pricing, and keep families connected to their arrangements."
+      },
+      {
+        "title": "There is a person to turn to.",
+        "body": "Mary and the team are available to discuss a first request, a change in plans or a concern. Good communication is part of the service."
+      }
+    ],
+    "contactButton": "Speak with our team"
+  },
+  "booking": {
+    "eyebrow": "Let us find the right support",
+    "title": "What would make\nyour day easier?",
+    "intro": "Send a request. Our team will contact you to work through the details and confirm availability.",
+    "image": "/images/rwanda-home.jpg",
+    "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "asideTitle": "Your home.\nYour kind of help.",
+    "asideText": "Share the neighbourhood and a short outline here. Full addresses, care instructions and private information belong in your household account.",
+    "assurances": [
+      "A personal review of your request",
+      "A clear quote before confirmation",
+      "Updates in your family account"
+    ],
+    "questionLink": "Prefer to have a conversation first?",
+    "formTitle": "Tell us what would help.",
+    "formIntro": "Your request starts a conversation. Our team will discuss availability and the right support with you."
+  },
+  "provider": {
+    "eyebrow": "Work you can take pride in",
+    "title": "Your skills can make\nsomeone’s day better.",
+    "intro": "We welcome people with experience in care, childcare, cooking, cleaning and household security. Tell us what you do well.",
+    "image": "/images/home-cleaning.jpg",
+    "imageAlt": "A Black home-support professional.",
+    "sidebarTitle": "Good people.\nMeaningful work.",
+    "sidebarText": "Applications are reviewed for experience, references and the requirements of each service. Documents are requested privately.",
+    "steps": [
+      "Share your experience",
+      "Talk through your references",
+      "Complete the required screening",
+      "Receive suitable, approved assignments"
+    ],
+    "privacyNote": "Applying does not automatically approve you for work.",
+    "formTitle": "Care is a skill.\nLet’s put yours to work.",
+    "formIntro": "Share your experience. Documents are requested through a private account after review.",
+    "formEyebrow": "Your application",
+    "successTitle": "Your next chapter starts here.",
+    "successText": "Applying does not approve you for assignments. Our team will follow up about screening and service requirements.",
+    "backButton": "Back to home",
+    "submittingLabel": "Submitting…"
+  },
+  "contact": {
+    "eyebrow": "A real conversation helps",
+    "title": "Let us talk\nabout your home.",
+    "intro": "A first question, a change in plans, or a particular kind of help. Mary and the team are here to listen.",
+    "image": "/images/rwanda-home.jpg",
+    "imageAlt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+    "formTitle": "Leave a note for Mary",
+    "successTitle": "Your message is with our team.",
+    "successText": "Thank you for getting in touch. We will follow up using the contact details you provided.",
+    "contactTitle": "Get in touch",
+    "phoneLabel": "Call Mary",
+    "emailLabel": "Send an email",
+    "areaLabel": "Our service area",
+    "hoursLabel": "Office hours",
+    "sendButton": "Send your message",
+    "emergencyNote": "Wellness is not an emergency or medical response service. For urgent help, contact an appropriate emergency service.",
+    "formLabels": {
+      "name": "Your name *",
+      "email": "Email address *",
+      "phone": "Phone (optional)",
+      "subject": "What can we help with? *",
+      "message": "Your message *",
+      "messageHint": "Please do not include identity documents, medical records or payment-card information.",
+      "consent": "I agree to be contacted about this message and have read the privacy notice.",
+      "privacyLink": "privacy notice",
+      "sendingLabel": "Sending…",
+      "subjects": [
+        "General enquiry",
+        "Service question",
+        "Provider application",
+        "Feedback or concern",
+        "Privacy request"
+      ]
+    }
+  },
+  "faq": {
+    "eyebrow": "Before you get started",
+    "title": "A few helpful answers.",
+    "intro": "Questions about a first request, your care team or a change in plans? Start here.",
+    "items": [
+      {
+        "question": "Is my request a confirmed booking?",
+        "answer": "Not yet. Every request is reviewed by our team. We confirm the scope, suitable provider, availability, price and terms with you before the booking is confirmed."
+      },
+      {
+        "question": "How much does home assistance cost?",
+        "answer": "We prepare a quote after understanding the service, duration and location. You can review the agreed price and any transport, supplies, ingredients or overtime before confirming."
+      },
+      {
+        "question": "Who will come to my home?",
+        "answer": "Our team matches the request with a suitable available provider after reviewing the relevant identity, reference and service requirements. You can see your assigned provider in your private account once the assignment is confirmed."
+      },
+      {
+        "question": "Can I request regular help?",
+        "answer": "Yes. Let us know your preferred weekly routine in the request. Our team reviews availability and confirms each agreed visit; submitting a recurring request does not reserve unconfirmed time."
+      },
+      {
+        "question": "Do you provide medical or emergency services?",
+        "answer": "No. Elderly home assistance is non-medical and is not a substitute for clinical or emergency services. Please contact an appropriate emergency service if someone needs urgent medical help."
+      },
+      {
+        "question": "How do payments work?",
+        "answer": "After a quote is agreed, invoices appear in your account. Approved cash, bank-transfer and mobile-money payments can be recorded by the team. If enabled, online payments open a secure hosted payment page; we never ask for card details in a booking form."
+      },
+      {
+        "question": "Can I change or cancel a visit?",
+        "answer": "You can request a change or cancellation from your account. Our team reviews the schedule and responds. The applicable cancellation or refund terms must be agreed before a booking is confirmed."
+      },
+      {
+        "question": "How is attendance verified?",
+        "answer": "Your provider records arrival and departure for the assigned visit. GPS is used for attendance verification at those moments, rather than continuous location tracking. You can follow service updates in your account."
+      }
+    ],
+    "image": "/images/community-care.jpg",
+    "imageAlt": "A Black family of five smiling together on a living room sofa."
+  },
+  "policies": {
+    "privacy": {
+      "label": "Privacy notice",
+      "title": "Your privacy matters.",
+      "intro": "A plain-language summary of how this platform handles your information.",
+      "sections": [
+        {
+          "title": "What we collect",
+          "body": "Booking enquiries use your contact details, service choice, neighbourhood and preferred schedule. Private accounts hold the household details and service records needed to coordinate agreed care. Provider applications and private screening documents are reviewed by authorized staff."
+        },
+        {
+          "title": "Why we use it",
+          "body": "We use this information to review requests, coordinate services, manage attendance and payments, communicate with you and respond to concerns. We do not sell your personal information."
+        },
+        {
+          "title": "Who can see it",
+          "body": "Families can see their own household and service records. Assigned workers receive the information needed for their work. Authorized administrators and operations staff have access appropriate to their responsibilities. Private staff documents are not public."
+        },
+        {
+          "title": "Location and payments",
+          "body": "Location is requested when a worker records arrival or departure for an assigned visit. Continuous tracking outside assignments is not enabled. Online payments, when available, use a hosted payment provider; the platform does not collect card details."
+        },
+        {
+          "title": "Your choices",
+          "body": "Use the contact page to request access, correction or deletion of personal information, or to raise a privacy concern. Retention periods, the business data-controller details and any applicable exceptions must be finalized by the business before live service."
+        }
+      ],
+      "status": "Policy summary · Final business approval required before live service"
+    },
+    "terms": {
+      "label": "Service terms",
+      "title": "Clear expectations. Better care.",
+      "intro": "The service relationship should be understood before a visit is confirmed.",
+      "sections": [
+        {
+          "title": "Requests and confirmation",
+          "body": "A service request is an enquiry. A booking is confirmed only after the team and household agree availability, provider suitability, duties, price and applicable terms."
+        },
+        {
+          "title": "Service boundaries",
+          "body": "Home assistance is not clinical care or emergency response. The agreed scope determines what the provider can do. Childcare requires parent or guardian authorization and agreed handover contacts. Security services depend on approved legal and operational arrangements."
+        },
+        {
+          "title": "Household responsibilities",
+          "body": "Provide accurate information, a safe service environment and the supplies or equipment agreed in the booking. Inform the team about changes that affect the service through your private account or contact channel."
+        },
+        {
+          "title": "Provider responsibilities",
+          "body": "Providers must complete the required screening for their category, follow agreed instructions and safeguarding requirements, record attendance and report incidents or problems promptly."
+        },
+        {
+          "title": "Before live service",
+          "body": "The business must approve its final contracts, identity, registration details, insurance arrangements and locally reviewed terms. This platform summary is not a replacement for those agreements."
+        }
+      ],
+      "status": "Policy summary · Final business approval required before live service"
+    },
+    "cancellations": {
+      "label": "Changes & cancellations",
+      "title": "When plans change.",
+      "intro": "We understand that life does not always follow a schedule.",
+      "sections": [
+        {
+          "title": "Requesting a change",
+          "body": "Open the relevant service in your family account to request a date, time or duration change, or cancellation. Explain the change so the team can review availability and respond."
+        },
+        {
+          "title": "Approval and timing",
+          "body": "A submitted change does not alter a confirmed booking until the team approves it. You will receive an update in your account when a decision is recorded."
+        },
+        {
+          "title": "Fees and refunds",
+          "body": "The applicable notice period, cancellation fee and refund eligibility must be agreed before the original booking is confirmed. We do not publish unapproved amounts or promise a refund before review."
+        },
+        {
+          "title": "Refund records",
+          "body": "Approved refunds are recorded against the original payment. The team will confirm the method and reference; actual settlement depends on the approved payment arrangement."
+        }
+      ],
+      "status": "Policy summary · Final business approval required before live service"
+    },
+    "safeguarding": {
+      "label": "Safeguarding",
+      "title": "Care begins with respect.",
+      "intro": "A safe home-care experience requires clear standards and a way to speak up.",
+      "sections": [
+        {
+          "title": "Screening and suitability",
+          "body": "Identity, references, experience and category-specific qualifications must be reviewed before a worker is approved for the relevant service. Applying or creating an account does not by itself grant assignment eligibility."
+        },
+        {
+          "title": "Children and authorized handovers",
+          "body": "Childcare requires parent or guardian authorization, approved contacts and an agreed arrival/departure process. Children’s photographs and personal information must not be published without explicit informed permission."
+        },
+        {
+          "title": "Dignity and service boundaries",
+          "body": "Respect privacy, independence, personal boundaries and the agreed duties. Non-medical home assistance must not be represented as nursing, medication administration or emergency medical support."
+        },
+        {
+          "title": "Reporting a concern",
+          "body": "Families can raise a concern from their account. Workers can submit incident or technical reports for an assigned visit. The team reviews, assigns responsibility and records follow-up. For immediate danger, use the appropriate local emergency service."
+        },
+        {
+          "title": "Operational readiness",
+          "body": "The business must approve its final safeguarding procedures, escalation contacts, training, insurance and service-specific operating standards before accepting live bookings."
+        }
+      ],
+      "status": "Policy summary · Final business approval required before live service"
+    }
+  },
+  "cta": {
+    "eyebrow": "A little support can change the day",
+    "title": "Let us make room\nfor what matters.",
+    "text": "Tell us about your household. We will help you find a practical place to begin.",
+    "button": "Request support",
+    "secondary": "Call Mary"
+  },
+  "footer": {
+    "tagline": "Good people. Thoughtful help.",
+    "description": "Care for your loved ones and practical help for your home, personally coordinated in Kigali.",
+    "location": "Kigali, Rwanda",
+    "servicesHeading": "Our services",
+    "companyHeading": "About Wellness",
+    "helpHeading": "Let us talk",
+    "copyright": "Wellness Home Care & Assistance",
+    "familyAccount": "Family account",
+    "teamSignIn": "Team sign in"
+  },
+  "labels": {
+    "allServices": "All services",
+    "exploreService": "Explore this service",
+    "serviceIncludes": "How we can help",
+    "serviceBoundaries": "Service boundaries",
+    "servicePrepare": "Before your visit",
+    "requestService": "Request this service",
+    "requestNotice": "A request is reviewed before a booking is confirmed.",
+    "aboutUs": "Our story",
+    "allQuestions": "All questions & answers",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cancellations": "Cancellations",
+    "safeguarding": "Safeguarding",
+    "backHome": "Back to home",
+    "galleryCaption": "Illustrative photography. The people shown are not presented as Wellness staff or customers."
+  },
+  "photography": {
+    "title": "The people and places in our photographs.",
+    "note": "Our photographs help show the kinds of home and community settings that inform this service. Unless a caption says otherwise, people shown are not identified as Wellness staff or customers.",
+    "rwandaCredit": "Photo: Noemi Ciucci / Wikimedia Commons, CC BY-SA 4.0.",
+    "items": [
+      {
+        "image": "/images/community-care.jpg",
+        "title": "Smiling black family resting on couch",
+        "author": "Monstera Production",
+        "sourceUrl": "https://www.pexels.com/photo/smiling-black-family-resting-on-couch-7114420/",
+        "license": "Pexels License",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "alt": "A Black family of five smiling together on a living room sofa.",
+        "location": "",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+      },
+      {
+        "image": "/images/care-at-home.jpg",
+        "title": "An Elderly Man in a Button Up Shirt",
+        "author": "Kampus Production",
+        "sourceUrl": "https://www.pexels.com/photo/an-elderly-man-in-a-button-up-shirt-8441881/",
+        "license": "Pexels License",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "alt": "A smiling older Black man wearing glasses and a pink shirt, seated indoors.",
+        "location": "Portugal",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+      },
+      {
+        "image": "/images/childcare.jpg",
+        "title": "Mother Playing with Son at Home",
+        "author": "Mizuno K",
+        "sourceUrl": "https://www.pexels.com/photo/mother-playing-with-son-at-home-12788421/",
+        "license": "Pexels License",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "alt": "A Black mother and her young son playing with colorful toys on a rug at home.",
+        "location": "",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+      },
+      {
+        "image": "/images/home-cooking.jpg",
+        "title": "Portrait of a Woman Cooking",
+        "author": "Mizuno K",
+        "sourceUrl": "https://www.pexels.com/photo/portrait-of-a-woman-cooking-12911577/",
+        "license": "Pexels License",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "alt": "A Black woman preparing eggs in a frying pan in a home kitchen.",
+        "location": "",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+      },
+      {
+        "image": "/images/home-cleaning.jpg",
+        "title": "A Woman in Gray Sweater Wiping the Table",
+        "author": "Tima Miroshnichenko",
+        "sourceUrl": "https://www.pexels.com/photo/a-woman-in-gray-sweater-wiping-the-table-6197046/",
+        "license": "Pexels License",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "alt": "A Black woman wearing orange gloves and wiping a table with a cloth.",
+        "location": "",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Downloaded in a smaller compressed web size from Pexels; no content alteration."
+      },
+      {
+        "image": "/images/home-security.jpg",
+        "title": "Black and White Security Gate Scene Outdoors",
+        "author": "Olaseni Omoare",
+        "sourceUrl": "https://www.pexels.com/photo/black-and-white-security-gate-scene-outdoors-33797919/",
+        "license": "Pexels License",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "alt": "A black and white photograph of two Black security guards standing beside an open metal gate.",
+        "location": "",
+        "dateTaken": "",
+        "caption": "",
+        "attribution": "",
+        "note": "Downloaded in a smaller compressed web size from Pexels; the source photograph is black and white."
+      },
+      {
+        "image": "/images/rwanda-home.jpg",
+        "title": "Kora village, Nyabihu district in Rwanda, 2021",
+        "author": "Noemi Ciucci",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kora_village,_Nyabihu_district_in_Rwanda,_2021.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": "Homes with stone walls and corrugated roofs in Kora village, Nyabihu, Rwanda, with children and sheep beside the road.",
+        "location": "Kora village, Nyabihu District, Western Province, Rwanda",
+        "dateTaken": "2021-11-05",
+        "caption": "A view of homes in Nyabihu, Rwanda.",
+        "attribution": "Photo: Noemi Ciucci / Wikimedia Commons, CC BY-SA 4.0.",
+        "note": "Downloaded Wikimedia's reduced 1280-pixel JPEG thumbnail; no crop or content alteration. CSS may crop the displayed frame."
+      }
+    ]
+  },
+  "seo": {
+    "home": {
+      "title": "Wellness Home Care & Assistance",
+      "description": "A caring hand for your loved ones. Help with the everyday. We bring thoughtful home support to families in Kigali, with the details agreed together."
+    },
+    "services": {
+      "title": "Home support services in Kigali",
+      "description": "From companionship and childcare to cooking, cleaning and security: choose what your household needs and let us talk it through."
+    },
+    "howItWorks": {
+      "title": "How home care works",
+      "description": "You do not need to have every detail worked out. A conversation is a good beginning."
+    },
+    "about": {
+      "title": "About Wellness",
+      "description": "Wellness Home Care & Assistance helps families in Kigali find practical, thoughtful support for everyday life."
+    },
+    "booking": {
+      "title": "Request home support",
+      "description": "Send a request. Our team will contact you to work through the details and confirm availability."
+    },
+    "provider": {
+      "title": "Join our home support team",
+      "description": "We welcome people with experience in care, childcare, cooking, cleaning and household security. Tell us what you do well."
+    },
+    "contact": {
+      "title": "Contact Wellness",
+      "description": "A first question, a change in plans, or a particular kind of help. Mary and the team are here to listen."
+    },
+    "faq": {
+      "title": "Questions about home support",
+      "description": "Questions about a first request, your care team or a change in plans? Start here."
+    }
+  }
+}

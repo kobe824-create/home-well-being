@@ -8,28 +8,31 @@ datasource db {
 
 enum UserRole {
   ADMIN
+  OPERATIONS
   EMPLOYEE
   PROVIDER
   CLIENT
 }
 
 model User {
-  id           String           @id @default(uuid()) @db.Uuid
-  email        String           @unique @db.VarChar(254)
-  passwordHash String           @map("password_hash")
-  fullName     String           @map("full_name") @db.VarChar(120)
-  phone        String?          @db.VarChar(24)
-  role         UserRole         @default(CLIENT)
-  isActive     Boolean          @default(true) @map("is_active")
-  createdAt    DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt    DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
-  requests     ServiceRequest[] @relation("ClientRequests")
-  assignments  ServiceRequest[] @relation("EmployeeAssignments")
-  attendance   WorkAttendance[]
-  reports      ServiceReport[]
-  customerFeedback CustomerFeedback[]
-  leaveRequests EmployeeLeaveRequest[] @relation("LeaveEmployee")
-  leaveDecisions EmployeeLeaveRequest[] @relation("LeaveReviewer")
+  id                  String                 @id @default(uuid()) @db.Uuid
+  email               String                 @unique @db.VarChar(254)
+  passwordHash        String                 @map("password_hash")
+  fullName            String                 @map("full_name") @db.VarChar(120)
+  phone               String?                @db.VarChar(24)
+  role                UserRole               @default(CLIENT)
+  isActive            Boolean                @default(true) @map("is_active")
+  mustChangePassword  Boolean                @default(false) @map("must_change_password")
+  sessionVersion      Int                    @default(0) @map("session_version")
+  createdAt           DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime               @updatedAt @map("updated_at") @db.Timestamptz(6)
+  requests            ServiceRequest[]       @relation("ClientRequests")
+  assignments         ServiceRequest[]       @relation("EmployeeAssignments")
+  attendance          WorkAttendance[]
+  reports             ServiceReport[]
+  customerFeedback    CustomerFeedback[]
+  leaveRequests       EmployeeLeaveRequest[] @relation("LeaveEmployee")
+  leaveDecisions      EmployeeLeaveRequest[] @relation("LeaveReviewer")
   providerApplication ProviderApplication?
 
   @@index([role, isActive])
@@ -37,43 +40,48 @@ model User {
 }
 
 model ServiceRequest {
-  id                     String              @id @default(uuid()) @db.Uuid
-  reference              String              @unique @db.VarChar(24)
-  fullName               String              @map("full_name") @db.VarChar(100)
-  phone                  String              @db.VarChar(24)
-  email                  String?             @db.VarChar(254)
-  preferredContact       String              @map("preferred_contact") @db.VarChar(16)
-  service                String              @db.VarChar(32)
-  neighborhood           String              @db.VarChar(100)
-  requestedDate          DateTime            @map("requested_date") @db.Date
-  startTime              DateTime            @map("start_time") @db.Time(6)
-  durationHours          Int                 @map("duration_hours")
-  recurring              Boolean             @default(false)
-  serviceDetails         Json                @default("{}") @map("service_details") @db.JsonB
-  contactConsent         Boolean             @default(false) @map("contact_consent")
-  status                 String              @default("New request") @db.VarChar(64)
-  assignedProviderId     String?             @map("assigned_provider_id") @db.Uuid
-  assignedProvider       ProviderApplication? @relation(fields: [assignedProviderId], references: [id], onDelete: SetNull)
-  assignedEmployeeId     String?             @map("assigned_employee_id") @db.Uuid
-  assignedEmployee       User?               @relation("EmployeeAssignments", fields: [assignedEmployeeId], references: [id], onDelete: SetNull)
-  employeeResponse       String              @default("Not assigned") @map("employee_response") @db.VarChar(24)
-  employeeRespondedAt    DateTime?           @map("employee_responded_at") @db.Timestamptz(6)
-  employeeDeclineNote    String?             @map("employee_decline_note") @db.VarChar(500)
-  attendance             WorkAttendance[]
-  reports                ServiceReport[]
-  feedback               CustomerFeedback[]
-  clientUserId           String?             @map("client_user_id") @db.Uuid
-  clientUser             User?               @relation("ClientRequests", fields: [clientUserId], references: [id], onDelete: SetNull)
-  quotedAmountRwf        Decimal?            @map("quoted_amount_rwf") @db.Decimal(12, 2)
-  paymentMethod          String              @default("Not decided") @map("payment_method") @db.VarChar(32)
-  clientPaymentStatus    String              @default("Not discussed") @map("client_payment_status") @db.VarChar(32)
-  providerPaymentStatus  String              @default("Not recorded") @map("provider_payment_status") @db.VarChar(32)
-  transactionReference   String?             @map("transaction_reference") @db.VarChar(120)
-  providerResponse       String              @default("Not assigned") @map("provider_response") @db.VarChar(24)
-  providerRespondedAt    DateTime?           @map("provider_responded_at") @db.Timestamptz(6)
-  providerDeclineNote    String?             @map("provider_decline_note") @db.VarChar(500)
-  createdAt              DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt              DateTime            @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                    String               @id @default(uuid()) @db.Uuid
+  householdId           String?              @map("household_id") @db.Uuid
+  seriesId              String?              @map("series_id") @db.Uuid
+  occurrenceIndex       Int                  @default(1) @map("occurrence_index")
+  occurrenceCount       Int                  @default(1) @map("occurrence_count")
+  recurrenceFrequency   String?              @map("recurrence_frequency") @db.VarChar(16)
+  reference             String               @unique @db.VarChar(24)
+  fullName              String               @map("full_name") @db.VarChar(100)
+  phone                 String               @db.VarChar(24)
+  email                 String?              @db.VarChar(254)
+  preferredContact      String               @map("preferred_contact") @db.VarChar(16)
+  service               String               @db.VarChar(32)
+  neighborhood          String               @db.VarChar(100)
+  requestedDate         DateTime             @map("requested_date") @db.Date
+  startTime             DateTime             @map("start_time") @db.Time(6)
+  durationHours         Int                  @map("duration_hours")
+  recurring             Boolean              @default(false)
+  serviceDetails        Json                 @default("{}") @map("service_details") @db.JsonB
+  contactConsent        Boolean              @default(false) @map("contact_consent")
+  status                String               @default("New request") @db.VarChar(64)
+  assignedProviderId    String?              @map("assigned_provider_id") @db.Uuid
+  assignedProvider      ProviderApplication? @relation(fields: [assignedProviderId], references: [id], onDelete: SetNull)
+  assignedEmployeeId    String?              @map("assigned_employee_id") @db.Uuid
+  assignedEmployee      User?                @relation("EmployeeAssignments", fields: [assignedEmployeeId], references: [id], onDelete: SetNull)
+  employeeResponse      String               @default("Not assigned") @map("employee_response") @db.VarChar(24)
+  employeeRespondedAt   DateTime?            @map("employee_responded_at") @db.Timestamptz(6)
+  employeeDeclineNote   String?              @map("employee_decline_note") @db.VarChar(500)
+  attendance            WorkAttendance[]
+  reports               ServiceReport[]
+  feedback              CustomerFeedback[]
+  clientUserId          String?              @map("client_user_id") @db.Uuid
+  clientUser            User?                @relation("ClientRequests", fields: [clientUserId], references: [id], onDelete: SetNull)
+  quotedAmountRwf       Decimal?             @map("quoted_amount_rwf") @db.Decimal(12, 2)
+  paymentMethod         String               @default("Not decided") @map("payment_method") @db.VarChar(32)
+  clientPaymentStatus   String               @default("Not discussed") @map("client_payment_status") @db.VarChar(32)
+  providerPaymentStatus String               @default("Not recorded") @map("provider_payment_status") @db.VarChar(32)
+  transactionReference  String?              @map("transaction_reference") @db.VarChar(120)
+  providerResponse      String               @default("Not assigned") @map("provider_response") @db.VarChar(24)
+  providerRespondedAt   DateTime?            @map("provider_responded_at") @db.Timestamptz(6)
+  providerDeclineNote   String?              @map("provider_decline_note") @db.VarChar(500)
+  createdAt             DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@index([createdAt(sort: Desc)])
   @@index([status])
@@ -83,26 +91,26 @@ model ServiceRequest {
 }
 
 model ProviderApplication {
-  id                String           @id @default(uuid()) @db.Uuid
-  reference         String           @unique @db.VarChar(24)
-  fullName          String           @map("full_name") @db.VarChar(100)
-  phone             String           @db.VarChar(24)
-  email             String?          @db.VarChar(254)
-  neighborhood      String           @db.VarChar(100)
-  service           String           @db.VarChar(32)
-  experience        String
-  languages         String           @db.VarChar(150)
-  availability      String           @db.VarChar(250)
-  training          String?
-  referencesText    String           @map("references_text")
-  referenceConsent  Boolean          @default(false) @map("reference_consent")
-  screeningConsent  Boolean          @default(false) @map("screening_consent")
-  status            String           @default("Application received") @db.VarChar(64)
-  userId            String?          @unique @map("user_id") @db.Uuid
-  user              User?            @relation(fields: [userId], references: [id], onDelete: SetNull)
-  assignedRequests  ServiceRequest[]
-  createdAt         DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt         DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id               String           @id @default(uuid()) @db.Uuid
+  reference        String           @unique @db.VarChar(24)
+  fullName         String           @map("full_name") @db.VarChar(100)
+  phone            String           @db.VarChar(24)
+  email            String?          @db.VarChar(254)
+  neighborhood     String           @db.VarChar(100)
+  service          String           @db.VarChar(32)
+  experience       String
+  languages        String           @db.VarChar(150)
+  availability     String           @db.VarChar(250)
+  training         String?
+  referencesText   String           @map("references_text")
+  referenceConsent Boolean          @default(false) @map("reference_consent")
+  screeningConsent Boolean          @default(false) @map("screening_consent")
+  status           String           @default("Application received") @db.VarChar(64)
+  userId           String?          @unique @map("user_id") @db.Uuid
+  user             User?            @relation(fields: [userId], references: [id], onDelete: SetNull)
+  assignedRequests ServiceRequest[]
+  createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@index([createdAt(sort: Desc)])
   @@map("provider_applications")
@@ -133,18 +141,27 @@ model WebsiteContent {
 }
 
 model WorkAttendance {
-  id                String         @id @default(uuid()) @db.Uuid
-  requestId         String         @map("request_id") @db.Uuid
-  employeeId        String         @map("employee_id") @db.Uuid
-  checkInAt         DateTime       @default(now()) @map("check_in_at") @db.Timestamptz(6)
-  checkInLatitude   Decimal        @map("check_in_latitude") @db.Decimal(9, 6)
-  checkInLongitude  Decimal        @map("check_in_longitude") @db.Decimal(9, 6)
-  checkOutAt        DateTime?      @map("check_out_at") @db.Timestamptz(6)
-  checkOutLatitude  Decimal?       @map("check_out_latitude") @db.Decimal(9, 6)
-  checkOutLongitude Decimal?       @map("check_out_longitude") @db.Decimal(9, 6)
-  createdAt         DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
-  request           ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
-  employee          User           @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  id                 String         @id @default(uuid()) @db.Uuid
+  requestId          String         @map("request_id") @db.Uuid
+  employeeId         String         @map("employee_id") @db.Uuid
+  checkInAt          DateTime       @default(now()) @map("check_in_at") @db.Timestamptz(6)
+  checkInLatitude    Decimal        @map("check_in_latitude") @db.Decimal(9, 6)
+  checkInLongitude   Decimal        @map("check_in_longitude") @db.Decimal(9, 6)
+  checkOutAt         DateTime?      @map("check_out_at") @db.Timestamptz(6)
+  checkOutLatitude   Decimal?       @map("check_out_latitude") @db.Decimal(9, 6)
+  checkOutLongitude  Decimal?       @map("check_out_longitude") @db.Decimal(9, 6)
+  checkInAccuracy    Float?         @map("check_in_accuracy")
+  checkOutAccuracy   Float?         @map("check_out_accuracy")
+  checkInCapturedAt  DateTime?      @map("check_in_captured_at") @db.Timestamptz(6)
+  checkOutCapturedAt DateTime?      @map("check_out_captured_at") @db.Timestamptz(6)
+  distanceMeters     Float?         @map("distance_meters")
+  verificationStatus String         @default("Unverified") @map("verification_status") @db.VarChar(32)
+  discrepancyNote    String?        @map("discrepancy_note")
+  reviewedBy         String?        @map("reviewed_by") @db.Uuid
+  reviewNote         String?        @map("review_note")
+  createdAt          DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  request            ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  employee           User           @relation(fields: [employeeId], references: [id], onDelete: Cascade)
 
   @@unique([requestId, employeeId])
   @@index([employeeId, checkInAt(sort: Desc)])
@@ -157,6 +174,8 @@ model ServiceReport {
   employeeId String         @map("employee_id") @db.Uuid
   kind       String         @db.VarChar(24)
   message    String         @db.VarChar(2000)
+  status     String         @default("Open")
+  response   String?
   createdAt  DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
   request    ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
   employee   User           @relation(fields: [employeeId], references: [id], onDelete: Cascade)
@@ -174,6 +193,9 @@ model CustomerFeedback {
   rating     Int?
   message    String         @db.VarChar(2000)
   status     String         @default("Received") @db.VarChar(24)
+  assignedTo String?        @map("assigned_to") @db.Uuid
+  resolution String?
+  resolvedAt DateTime?      @map("resolved_at") @db.Timestamptz(6)
   createdAt  DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt  DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
   request    ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
@@ -187,8 +209,11 @@ model CustomerFeedback {
 model EmployeeLeaveRequest {
   id           String   @id @default(uuid()) @db.Uuid
   employeeId   String   @map("employee_id") @db.Uuid
+  kind         String   @default("Time off") @db.VarChar(40)
   startDate    DateTime @map("start_date") @db.Date
   endDate      DateTime @map("end_date") @db.Date
+  startTime    String?  @map("start_time") @db.VarChar(5)
+  endTime      String?  @map("end_time") @db.VarChar(5)
   reason       String   @db.VarChar(1000)
   status       String   @default("Pending") @db.VarChar(24)
   reviewerId   String?  @map("reviewer_id") @db.Uuid
@@ -201,4 +226,226 @@ model EmployeeLeaveRequest {
   @@index([employeeId, createdAt(sort: Desc)])
   @@index([status, startDate])
   @@map("employee_leave_requests")
+}
+
+model Department {
+  id                 String   @id @default(uuid()) @db.Uuid
+  name               String   @db.VarChar(100)
+  service            String   @unique @db.VarChar(32)
+  description        String   @default("")
+  hourlyRateRwf      Decimal  @default(0) @map("hourly_rate_rwf") @db.Decimal(12, 2)
+  minimumHours       Int      @default(2) @map("minimum_hours")
+  qualificationRules Json     @default("[]") @map("qualification_rules")
+  active             Boolean  @default(true)
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("departments")
+}
+
+model Household {
+  id               String   @id @default(uuid()) @db.Uuid
+  clientId         String   @map("client_id") @db.Uuid
+  name             String   @db.VarChar(120)
+  address          String   @db.VarChar(500)
+  neighborhood     String   @db.VarChar(120)
+  latitude         Float?
+  longitude        Float?
+  geofenceMeters   Int      @default(150) @map("geofence_meters")
+  locationApproved Boolean  @default(false) @map("location_approved")
+  contacts         Json     @default("[]")
+  notes            String   @default("")
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([clientId])
+  @@map("households")
+}
+
+model StaffProfile {
+  id               String    @id @default(uuid()) @db.Uuid
+  userId           String    @unique @map("user_id") @db.Uuid
+  departmentId     String?   @map("department_id") @db.Uuid
+  jobTitle         String    @default("") @map("job_title")
+  screeningStatus  String    @default("Pending") @map("screening_status")
+  screeningNotes   String    @default("") @map("screening_notes")
+  qualifications   Json      @default("[]")
+  availability     Json      @default("[]")
+  hourlyRateRwf    Decimal   @default(0) @map("hourly_rate_rwf") @db.Decimal(12, 2)
+  monthlySalaryRwf Decimal   @default(0) @map("monthly_salary_rwf") @db.Decimal(12, 2)
+  contractStart    DateTime? @map("contract_start") @db.Date
+  contractEnd      DateTime? @map("contract_end") @db.Date
+  status           String    @default("Active")
+  updatedAt        DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("staff_profiles")
+}
+
+model PrivateDocument {
+  id           String   @id @default(uuid()) @db.Uuid
+  uploaderId   String   @map("uploader_id") @db.Uuid
+  ownerUserId  String   @map("owner_user_id") @db.Uuid
+  householdId  String?  @map("household_id") @db.Uuid
+  name         String   @db.VarChar(180)
+  mimeType     String   @map("mime_type") @db.VarChar(100)
+  size         Int
+  storageKey   String   @unique @map("storage_key")
+  category     String   @db.VarChar(64)
+  status       String   @default("Pending")
+  reviewerId   String?  @map("reviewer_id") @db.Uuid
+  reviewerNote String?  @map("reviewer_note")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([ownerUserId])
+  @@map("private_documents")
+}
+
+model Notification {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  title     String    @db.VarChar(180)
+  dedupeKey String?   @unique @map("dedupe_key")
+  message   String    @db.VarChar(1000)
+  link      String    @default("/account")
+  readAt    DateTime? @map("read_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("notifications")
+}
+
+model EmailOutbox {
+  id        String    @id @default(uuid()) @db.Uuid
+  recipient String    @db.VarChar(254)
+  subject   String    @db.VarChar(200)
+  text      String
+  status    String    @default("Pending")
+  attempts  Int       @default(0)
+  lastError String?   @map("last_error")
+  sentAt    DateTime? @map("sent_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([status, createdAt])
+  @@map("email_outbox")
+}
+
+model PasswordReset {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  tokenHash String    @unique @map("token_hash")
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz(6)
+  usedAt    DateTime? @map("used_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("password_resets")
+}
+
+model Invoice {
+  id        String    @id @default(uuid()) @db.Uuid
+  number    String    @unique @db.VarChar(32)
+  requestId String    @unique @map("request_id") @db.Uuid
+  clientId  String?   @map("client_id") @db.Uuid
+  lineItems Json      @map("line_items")
+  totalRwf  Decimal   @map("total_rwf") @db.Decimal(12, 2)
+  dueDate   DateTime? @map("due_date") @db.Date
+  status    String    @default("Unpaid")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  payments  Payment[]
+
+  @@index([clientId])
+  @@map("invoices")
+}
+
+model Payment {
+  id                String   @id @default(uuid()) @db.Uuid
+  invoiceId         String   @map("invoice_id") @db.Uuid
+  amountRwf         Decimal  @map("amount_rwf") @db.Decimal(12, 2)
+  kind              String   @default("PAYMENT")
+  method            String   @db.VarChar(40)
+  reference         String   @db.VarChar(180)
+  providerReference String?  @unique @map("provider_reference")
+  status            String   @default("Recorded")
+  recordedBy        String?  @map("recorded_by") @db.Uuid
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  invoice           Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Restrict)
+
+  @@unique([invoiceId, kind, reference])
+  @@index([invoiceId])
+  @@map("payments")
+}
+
+model Payroll {
+  id            String    @id @default(uuid()) @db.Uuid
+  employeeId    String    @map("employee_id") @db.Uuid
+  periodStart   DateTime  @map("period_start") @db.Date
+  periodEnd     DateTime  @map("period_end") @db.Date
+  hours         Float
+  rateRwf       Decimal   @map("rate_rwf") @db.Decimal(12, 2)
+  grossRwf      Decimal   @map("gross_rwf") @db.Decimal(12, 2)
+  deductionsRwf Decimal   @default(0) @map("deductions_rwf") @db.Decimal(12, 2)
+  netRwf        Decimal   @map("net_rwf") @db.Decimal(12, 2)
+  status        String    @default("Draft")
+  approvedBy    String?   @map("approved_by") @db.Uuid
+  paidAt        DateTime? @map("paid_at") @db.Timestamptz(6)
+  reference     String?
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([employeeId, periodStart, periodEnd])
+  @@map("payroll")
+}
+
+model Expense {
+  id          String   @id @default(uuid()) @db.Uuid
+  date        DateTime @db.Date
+  category    String   @db.VarChar(80)
+  description String   @db.VarChar(500)
+  amountRwf   Decimal  @map("amount_rwf") @db.Decimal(12, 2)
+  reference   String?  @db.VarChar(180)
+  createdBy   String   @map("created_by") @db.Uuid
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("expenses")
+}
+
+model ServiceChange {
+  id            String    @id @default(uuid()) @db.Uuid
+  requestId     String    @map("request_id") @db.Uuid
+  clientId      String    @map("client_id") @db.Uuid
+  kind          String    @db.VarChar(24)
+  requestedDate DateTime? @map("requested_date") @db.Date
+  startTime     String?   @map("start_time") @db.VarChar(5)
+  durationHours Int?      @map("duration_hours")
+  reason        String    @db.VarChar(1000)
+  status        String    @default("Pending")
+  reviewerNote  String?   @map("reviewer_note")
+  reviewedBy    String?   @map("reviewed_by") @db.Uuid
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([clientId])
+  @@map("service_changes")
+}
+
+model CheckoutSession {
+  id         String   @id @default(uuid()) @db.Uuid
+  invoiceId  String   @map("invoice_id") @db.Uuid
+  txRef      String   @unique @map("tx_ref")
+  amountRwf  Decimal  @map("amount_rwf") @db.Decimal(12, 2)
+  status     String   @default("Pending")
+  providerId String?  @map("provider_id")
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("checkout_sessions")
+}
+
+model ContactEnquiry {
+  id           String   @id @default(uuid()) @db.Uuid
+  name         String   @db.VarChar(120)
+  email        String   @db.VarChar(254)
+  phone        String   @default("") @db.VarChar(24)
+  subject      String   @db.VarChar(160)
+  message      String   @db.VarChar(2000)
+  status       String   @default("New")
+  responseNote String   @default("") @map("response_note")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("contact_enquiries")
 }

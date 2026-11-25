@@ -1,0 +1,53 @@
+.cms-editor { max-width: 1400px; }
+.cms-editor button, .cms-editor input, .cms-editor textarea { font: inherit; }
+.cms-editor .editor-top { align-items: flex-start; }
+.cms-toolbar { position: sticky; top: 0; z-index: 4; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 18px 0; background: #fff; border-block: 1px solid #e3e6df; }
+.cms-toolbar > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.cms-draft-status { color: #617361; font-size: .85rem; }
+.cms-draft-status.has-changes { color: #865c24; }
+.cms-editable-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.cms-editable-fields:disabled { opacity: .65; }
+.cms-workspace { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 24px; align-items: start; margin-top: 24px; }
+.cms-tabs { display: flex; flex-direction: column; gap: 5px; position: sticky; top: 100px; }
+.cms-tabs button { border: 0; background: transparent; padding: 12px 14px; border-radius: 8px; color: #555f52; text-align: left; cursor: pointer; }
+.cms-tabs button.is-active { background: #e8efdf; color: #2b4825; font-weight: 600; }
+.cms-tabs button:hover { background: #f0f3ec; }
+.cms-active-section { min-width: 0; margin: 0 !important; }
+.cms-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.cms-field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.cms-field > span, .cms-field-label { font-size: .84rem; color: #4e594a; font-weight: 600; }
+.cms-field input, .cms-field textarea { width: 100%; min-width: 0; padding: 11px 13px; border: 1px solid #d8ded1; border-radius: 7px; background: #fff; color: #283424; line-height: 1.55; }
+.cms-field input:focus, .cms-field textarea:focus { outline: 2px solid #739965; outline-offset: 2px; }
+.cms-field textarea { resize: vertical; }
+.cms-field-wide, .cms-group, .cms-media-field { grid-column: 1 / -1; }
+.cms-group { padding-top: 17px; border-top: 1px solid #e5e8df; }
+.cms-group > h3 { margin: 0 0 17px; font-size: 1rem; }
+.cms-list { display: grid; gap: 20px; }
+.cms-list-item { padding: 20px; border: 1px solid #e2e7da; border-radius: 10px; background: #fcfdf9; min-width: 0; }
+.cms-item-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.cms-item-heading h4 { font-size: .95rem; margin: 0; overflow-wrap: anywhere; }
+.cms-remove { background: transparent; border: 0; color: #9a4035; cursor: pointer; padding: 0 0 4px; font-size: .8rem !important; }
+.cms-add { justify-self: start; }
+.cms-media-field { display: grid; gap: 9px; }
+.cms-media-preview { max-width: 540px; aspect-ratio: 16 / 9; border-radius: 8px; background: #edf0e7; overflow: hidden; }
+.cms-media-preview img, .cms-media-preview video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.cms-upload { justify-self: start; cursor: pointer; position: relative; }
+.cms-upload input { position: absolute; inset: 0; opacity: 0; width: 100%; cursor: pointer; }
+.cms-upload.is-busy { opacity: .6; pointer-events: none; }
+.cms-hint { margin: 0; color: #6b7465; font-size: .78rem; line-height: 1.6; }
+.cms-field-error { font-size: .84rem; color: #9a4035; margin: 0; }
+.cms-check { display: flex; gap: 9px; align-items: center; }
+.cms-site-preview { margin-top: 30px; border: 1px solid #d9dfd1; border-radius: 10px; overflow: hidden; }
+.cms-site-preview > div { padding: 20px; background: #f4f6ed; }
+.cms-site-preview h3 { margin: 0 0 8px; }
+.cms-site-preview p { font-size: .85rem; }
+.cms-site-preview iframe { display: block; width: 100%; height: 760px; background: #f8f8f3; border: 0; }
+@media (max-width: 800px) {
+  .cms-workspace { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .cms-tabs { flex-direction: row; overflow-x: auto; position: static; padding-bottom: 8px; }
+  .cms-tabs button { white-space: nowrap; }
+  .cms-toolbar { position: static; }
+  .cms-fields { grid-template-columns: minmax(0, 1fr); }
+  .cms-list-item { padding: 14px; }
+  .cms-site-preview iframe { height: 600px; }
+}
