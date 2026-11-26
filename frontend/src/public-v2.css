@@ -212,6 +212,22 @@
 .v2-process h3 { font-size: 20px; }
 .v2-process p { margin: 0; }
 .v2-process-line { display: none; }
+.v2-account-roles { padding: 0 0 76px; }
+.v2-account-roles > header { max-width: 760px; margin: 0 auto 30px; text-align: center; }
+.v2-account-roles > header h2 { margin-bottom: 12px; }
+.v2-account-role-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.v2-account-role-grid article { padding: 26px 25px; border: 1px solid var(--v2-line); border-top: 3px solid var(--v2-moss); background: #fff; }
+.v2-account-role-grid article:nth-child(2) { border-top-color: var(--v2-rust); }
+.v2-account-role-grid article:nth-child(3) { border-top-color: var(--v2-forest); }
+.v2-account-role-grid .v2-kicker { margin-bottom: 9px; }
+.v2-account-role-grid h3 { margin-bottom: 10px; }
+.v2-account-role-grid article > p:not(.v2-kicker) { min-height: 78px; }
+.v2-account-role-grid ul { display: grid; gap: 9px; list-style: none; padding: 16px 0 0; margin: 16px 0 0; border-top: 1px solid var(--v2-line); }
+.v2-account-role-grid li { position: relative; padding-left: 19px; color: var(--v2-ink); font-size: 14px; }
+.v2-account-role-grid li::before { content: ""; position: absolute; left: 0; top: .58em; width: 7px; height: 7px; border-radius: 50%; background: var(--v2-rust); }
+.v2-account-connection { margin-top: 20px; padding: 25px 28px; border-left: 4px solid var(--v2-rust); background: var(--v2-soft); }
+.v2-account-connection h3 { font-size: 20px; margin-bottom: 8px; }
+.v2-account-connection p { margin: 0; max-width: 1000px; }
 .v2-account-banner { display: flex; align-items: center; justify-content: space-between; gap: 30px; background: var(--v2-soft); padding: 28px; margin-bottom: 80px; }
 .v2-account-banner h2 { font-size: 23px; margin-bottom: 8px; }
 .v2-account-banner p { margin: 0; }
@@ -324,6 +340,10 @@
   .v2-about-layout, .v2-process-page, .v2-faq-page { grid-template-columns: 1fr; gap: 28px; padding-bottom: 62px; }
   .v2-about-layout > img, .v2-process-page > img, .v2-faq-page > img { aspect-ratio: 1.3; }
   .v2-process { gap: 20px; }
+  .v2-account-roles { padding-bottom: 55px; }
+  .v2-account-role-grid { grid-template-columns: 1fr; }
+  .v2-account-role-grid article > p:not(.v2-kicker) { min-height: 0; }
+  .v2-account-connection { padding: 21px; }
   .v2-account-banner { align-items: flex-start; flex-direction: column; margin-bottom: 55px; padding: 22px; }
   .v2-request-layout { grid-template-columns: 1fr; gap: 27px; padding-bottom: 65px; }
   .v2-request-layout > aside > figure img, .v2-request-layout > aside > img { aspect-ratio: 1.5; }

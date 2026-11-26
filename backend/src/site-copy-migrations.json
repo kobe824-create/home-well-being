@@ -48,16 +48,16 @@
     "to": "Talk to Mary and the team about a first request, an existing arrangement or a question about our services. Call, write or send a message using the form; share only the information needed for us to reply."
   },
   "contact.image": {
-    "from": "/images/kigali-home-care.webp",
-    "to": "/images/community-care.jpg"
+    "from": "/images/community-care.jpg",
+    "to": "/images/contact-welcome.webp"
   },
   "contact.formTitle": {
     "from": "Leave a note for Mary",
     "to": "How can we help?"
   },
   "contact.imageAlt": {
-    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
-    "to": "A Black family spending time together at home."
+    "from": "A Black family spending time together at home.",
+    "to": "A home support coordinator welcoming a family at their home."
   },
   "contact.successText": {
     "from": "Thank you for getting in touch. We will follow up using the contact details you provided.",
@@ -164,16 +164,16 @@
     "to": "Practical cleaning for the rooms and surfaces your household uses every day. We agree a simple task list, priorities, supplies and access arrangements so everyone understands what will be covered during the visit."
   },
   "services.4.image": {
-    "from": "/images/home-driver.webp",
-    "to": "/images/community-care.jpg"
+    "from": "/images/community-care.jpg",
+    "to": "/images/service-driving-detail.webp"
   },
   "services.4.prepare": {
     "from": "Share the preferred date, time and general area. Keep exact addresses and sensitive travel details for a private conversation with our team.",
     "to": "Share the general area, preferred time and type of journey first. Exact addresses, passenger details and sensitive travel information are best shared privately with the team while the route and vehicle arrangements are reviewed."
   },
   "services.4.alt": {
-    "from": "Illustrative scene of a home driver beside an ordinary family car outside a modest Kigali home. The person and property are not a real Wellness employee or customer.",
-    "to": "A Black family sharing time together at home."
+    "from": "A Black family sharing time together at home.",
+    "to": "A Black home driver helping an older passenger into a car before a planned journey."
   },
   "services.4.includes.0": {
     "from": "A driver for planned household journeys",
@@ -192,8 +192,8 @@
     "to": "A clear contact plan for journey updates"
   },
   "services.4.videoPoster": {
-    "from": "/images/home-driver.webp",
-    "to": "/images/community-care.jpg"
+    "from": "/images/community-care.jpg",
+    "to": "/images/service-driving-detail.webp"
   },
   "services.4.boundaries": {
     "from": "Driver licence, availability, vehicle, insurance and journey details must be reviewed and agreed before any trip is confirmed. A request is not a confirmed ride.",
@@ -236,16 +236,16 @@
     "to": "Explore care, household and practical support for families in Kigali. Start with the service that feels closest to what you need; we can work through the details together."
   },
   "servicesPage.image": {
-    "from": "/images/kigali-home-care.webp",
-    "to": "/images/community-care.jpg"
+    "from": "/images/community-care.jpg",
+    "to": "/images/how-it-works-flow.webp"
   },
   "servicesPage.scopeTitle": {
     "from": "The right support starts with the details.",
     "to": "A clear agreement before the first visit"
   },
   "servicesPage.imageAlt": {
-    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
-    "to": "A Black family spending time together at home."
+    "from": "A Black family spending time together at home.",
+    "to": "A family, service coordinator and employee reviewing the stages of a home visit together."
   },
   "servicesPage.scopeText": {
     "from": "Every request is reviewed. We agree the person, duties, schedule, price and service boundaries with you before confirming.",
@@ -408,8 +408,8 @@
     "to": "Tell us what kind of help you are looking for and when it might be useful. The team will review your request, discuss suitability and availability, and share a quote for you to consider."
   },
   "booking.image": {
-    "from": "/images/kigali-home-care.webp",
-    "to": "/images/community-care.jpg"
+    "from": "/images/community-care.jpg",
+    "to": "/images/booking-plan.webp"
   },
   "booking.assurances.0": {
     "from": "A personal review of your request",
@@ -428,8 +428,8 @@
     "to": "Use the form to share a general area, preferred timing and a short description of the support. Do not include full home addresses, medical records, alarm codes or other sensitive details in a first enquiry."
   },
   "booking.imageAlt": {
-    "from": "Illustrative scene of a home care worker greeting an older woman outside a modest Kigali home. The people and property are not real Wellness customers.",
-    "to": "A Black family spending time together at home."
+    "from": "A Black family spending time together at home.",
+    "to": "A family and home support professional reviewing a planned service."
   },
   "booking.asideTitle": {
     "from": "Your home.\nYour kind of help.",
@@ -444,27 +444,143 @@
     "to": "A few clear details help us understand the request. We will contact you to discuss any questions, availability and the proposed arrangement."
   },
   "howItWorks.intro": {
-    "from": "You do not need to have every detail worked out. A conversation is a good beginning.",
-    "to": "A first request does not need to contain every detail. Choose a service, share the broad timing and location, and we will help you work out what else is needed."
+    "from": "A first request does not need to contain every detail. Choose a service, share the broad timing and location, and we will help you work out what else is needed.",
+    "to": "The family account shares what support is needed. Management reviews the request, agrees the plan and assigns an employee. The employee account carries the confirmed visit details and sends progress back through the service team."
   },
   "howItWorks.accountText": {
-    "from": "Visits, care updates, invoices and messages. A clear view when you need one.",
-    "to": "Keep the details of a confirmed arrangement together: visit updates, messages, invoices and feedback in one private place."
+    "from": "Keep the details of a confirmed arrangement together: visit updates, messages, invoices and feedback in one private place.",
+    "to": "The family account keeps the agreed service, visit updates, messages, invoices and feedback together."
   },
   "howItWorks.steps.0.text": {
-    "from": "Choose a service and share your preferred area, date and hours. Keep private care details in your family account.",
-    "to": "Choose a service and tell us the general area, preferred days or date, and the kind of support you have in mind. Keep full addresses and sensitive care information for your private household account or direct conversation."
+    "from": "Choose a service and tell us the general area, preferred days or date, and the kind of support you have in mind. Keep full addresses and sensitive care information for your private household account or direct conversation.",
+    "to": "From the family account, a household chooses a service, shares broad timing and location, and explains what would help. The request starts a conversation; it does not confirm a booking."
   },
   "howItWorks.steps.1.text": {
-    "from": "We discuss the tasks, review suitable people and agree a quote and schedule.",
-    "to": "We talk through the tasks, household preferences, service boundaries and any practical arrangements such as supplies, ingredients or transport. We can answer questions before you make a decision."
+    "from": "We talk through the tasks, household preferences, service boundaries and any practical arrangements such as supplies, ingredients or transport. We can answer questions before you make a decision.",
+    "to": "The management account is used to clarify the household’s needs, check service suitability and availability, and discuss duties, timing, boundaries and the quote with the family."
   },
   "howItWorks.steps.2.text": {
-    "from": "You know who is coming, what has been agreed and how to get in touch before the visit.",
-    "to": "You review the proposed provider, duties, timing and quote. The arrangement becomes a booking only after the details and availability are agreed with you."
+    "from": "You review the proposed provider, duties, timing and quote. The arrangement becomes a booking only after the details and availability are agreed with you.",
+    "to": "The family reviews the proposed service, schedule, price and arrangements. Management confirms the booking only after the household and team agree the details."
   },
   "howItWorks.steps.3.text": {
-    "from": "See arrival and completion updates, manage invoices and share feedback in your account.",
-    "to": "For a confirmed visit, follow the updates and messages available in your family account. If your routine changes, contact the team so the schedule can be reviewed."
+    "from": "For a confirmed visit, follow the updates and messages available in your family account. If your routine changes, contact the team so the schedule can be reviewed.",
+    "to": "Management matches the confirmed work with an available employee and links that assignment to the family’s booking. The employee account shows the assigned visit and the instructions needed for that work."
+  },
+  "services.0.image": {
+    "from": "/images/care-at-home.jpg",
+    "to": "/images/service-elderly-detail.webp"
+  },
+  "services.0.alt": {
+    "from": "A smiling older Black man wearing glasses and a pink shirt, seated indoors.",
+    "to": "A Black home support worker speaking with an older woman in a modest Kigali home."
+  },
+  "services.0.videoPoster": {
+    "from": "/images/care-at-home.jpg",
+    "to": "/images/service-elderly-detail.webp"
+  },
+  "services.1.image": {
+    "from": "/images/childcare.jpg",
+    "to": "/images/service-childcare-detail.webp"
+  },
+  "services.1.alt": {
+    "from": "A Black mother and her young son playing with colorful toys on a rug at home.",
+    "to": "A Black caregiver reading with a young child in a bright family home."
+  },
+  "services.1.videoPoster": {
+    "from": "/images/childcare.jpg",
+    "to": "/images/service-childcare-detail.webp"
+  },
+  "services.2.image": {
+    "from": "/images/home-cooking.jpg",
+    "to": "/images/service-cooking-detail.webp"
+  },
+  "services.2.alt": {
+    "from": "A Black woman preparing eggs in a frying pan in a home kitchen.",
+    "to": "A Black home cook preparing a meal with fresh ingredients in a Kigali kitchen."
+  },
+  "services.2.videoPoster": {
+    "from": "/images/home-cooking.jpg",
+    "to": "/images/service-cooking-detail.webp"
+  },
+  "services.3.image": {
+    "from": "/images/home-cleaning.jpg",
+    "to": "/images/service-cleaning-detail.webp"
+  },
+  "services.3.alt": {
+    "from": "A Black woman wearing orange gloves and wiping a table with a cloth.",
+    "to": "A Black cleaning professional carefully tidying a family living room."
+  },
+  "services.3.videoPoster": {
+    "from": "/images/home-cleaning.jpg",
+    "to": "/images/service-cleaning-detail.webp"
+  },
+  "services.5.image": {
+    "from": "/images/home-security.jpg",
+    "to": "/images/service-security-detail.webp"
+  },
+  "services.5.alt": {
+    "from": "A black and white photograph of two Black security guards standing beside an open metal gate.",
+    "to": "A Black home security professional speaking with a homeowner at a gate."
+  },
+  "services.5.videoPoster": {
+    "from": "/images/home-security.jpg",
+    "to": "/images/service-security-detail.webp"
+  },
+  "howItWorks.title": {
+    "from": "Tell us what would help.\nWe will take it from there.",
+    "to": "Three accounts. One coordinated service."
+  },
+  "howItWorks.image": {
+    "from": "/images/childcare.jpg",
+    "to": "/images/how-it-works-flow.webp"
+  },
+  "howItWorks.imageAlt": {
+    "from": "A Black mother and her young son playing with colorful toys on a rug at home.",
+    "to": "A family, service coordinator and employee reviewing the stages of a home visit together."
+  },
+  "howItWorks.accountTitle": {
+    "from": "Your family account keeps it together.",
+    "to": "A private place for the household"
+  },
+  "howItWorks.steps.0.title": {
+    "from": "Tell us about your home",
+    "to": "1. The family sends a request"
+  },
+  "howItWorks.steps.1.title": {
+    "from": "Work through the details",
+    "to": "2. Management reviews the request"
+  },
+  "howItWorks.steps.2.title": {
+    "from": "Confirm your arrangement",
+    "to": "3. The family agrees the plan"
+  },
+  "howItWorks.steps.3.title": {
+    "from": "Stay connected",
+    "to": "4. Management assigns an employee"
+  },
+  "about.image": {
+    "from": "/images/community-care.jpg",
+    "to": "/images/about-family-meeting.webp"
+  },
+  "about.imageAlt": {
+    "from": "A Black family of five smiling together on a living room sofa.",
+    "to": "A service coordinator discussing home support with a family in Kigali."
+  },
+  "provider.image": {
+    "from": "/images/home-cleaning.jpg",
+    "to": "/images/provider-preparation.webp"
+  },
+  "provider.imageAlt": {
+    "from": "A Black home-support professional.",
+    "to": "A home support employee preparing a visit checklist."
+  },
+  "faq.image": {
+    "from": "/images/community-care.jpg",
+    "to": "/images/faq-family.webp"
+  },
+  "faq.imageAlt": {
+    "from": "A Black family of five smiling together on a living room sofa.",
+    "to": "A family discussing practical home support with a care professional."
   }
 }

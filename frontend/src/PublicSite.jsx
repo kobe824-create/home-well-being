@@ -314,14 +314,19 @@ function CareCta() {
     </section>
   );
 }
-function ServiceCatalog({ compact = false }) {
+function ServiceCatalog({ compact = false, home = false }) {
   const { content: c } = useSiteContent();
   return (
     <div className={`v2-service-catalog ${compact ? "compact" : ""}`}>
       {c.services.map((s) => (
         <article key={s.id}>
           <a className="v2-service-picture" href={`/services/${s.slug}`}>
-            <img src={s.image} alt={s.alt} loading="lazy" decoding="async" />
+            <img
+              src={home ? s.cardImage || s.image : s.image}
+              alt={home ? s.cardAlt || s.alt : s.alt}
+              loading="lazy"
+              decoding="async"
+            />
           </a>
           <div>
             <p className="v2-kicker">{s.short}</p>
@@ -439,7 +444,7 @@ function Home() {
           </div>
           <p>{h.servicesIntro}</p>
         </div>
-        <ServiceCatalog />
+        <ServiceCatalog home />
       </section>
       <section className="v2-story-section">
         <div className="container v2-story-layout">
@@ -915,6 +920,31 @@ export default function PublicSite({ user }) {
         <section className="container v2-section v2-process-page">
           <img src={c.howItWorks.image} alt={c.howItWorks.imageAlt} />
           <Process />
+        </section>
+        <section className="container v2-account-roles">
+          <header>
+            <p className="v2-kicker">Three connected roles</p>
+            <h2>{c.howItWorks.accountsTitle}</h2>
+            <p>{c.howItWorks.accountsIntro}</p>
+          </header>
+          <div className="v2-account-role-grid">
+            {c.howItWorks.accounts.map((account) => (
+              <article key={account.label}>
+                <p className="v2-kicker">{account.label}</p>
+                <h3>{account.title}</h3>
+                <p>{account.text}</p>
+                <ul>
+                  {account.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <aside className="v2-account-connection">
+            <h3>{c.howItWorks.connectionTitle}</h3>
+            <p>{c.howItWorks.connectionText}</p>
+          </aside>
         </section>
         <section className="container v2-account-banner">
           <div>

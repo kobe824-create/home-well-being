@@ -14,6 +14,65 @@ const retiredPhotoPaths = new Set([
   "/images/home-driver.webp",
   "/images/rwanda-home.jpg",
 ]);
+const formerHomePhotos = new Set([
+  "/images/care-at-home.jpg",
+  "/images/childcare.jpg",
+  "/images/home-cooking.jpg",
+  "/images/home-cleaning.jpg",
+  "/images/community-care.jpg",
+  "/images/home-security.jpg",
+  ...retiredPhotoPaths,
+]);
+const serviceDetailImages = [
+  "/images/service-elderly-detail.webp",
+  "/images/service-childcare-detail.webp",
+  "/images/service-cooking-detail.webp",
+  "/images/service-cleaning-detail.webp",
+  "/images/service-driving-detail.webp",
+  "/images/service-security-detail.webp",
+];
+function imageForSavedPath(path, value) {
+  if (!formerHomePhotos.has(value)) return null;
+  const service = path.match(/^services\.(\d+)\.(?:image|videoPoster)$/);
+  if (service) return serviceDetailImages[Number(service[1])] || null;
+  const pageImages = {
+    "howItWorks.image": "/images/how-it-works-flow.webp",
+    "servicesPage.image": "/images/how-it-works-flow.webp",
+    "about.image": "/images/about-family-meeting.webp",
+    "booking.image": "/images/booking-plan.webp",
+    "provider.image": "/images/provider-preparation.webp",
+    "contact.image": "/images/contact-welcome.webp",
+    "faq.image": "/images/faq-family.webp",
+  };
+  return pageImages[path] || null;
+}
+function altForSavedPath(path) {
+  const service = path.match(/^services\.(\d+)\.(?:alt|cardAlt)$/);
+  if (service) {
+    const index = Number(service[1]);
+    const detail = [
+      "A Black home support worker speaking with an older woman in a modest Kigali home.",
+      "A Black caregiver reading with a young child in a bright family home.",
+      "A Black home cook preparing a meal with fresh ingredients in a Kigali kitchen.",
+      "A Black cleaning professional carefully tidying a family living room.",
+      "A Black home driver helping an older passenger into a car before a planned journey.",
+      "A Black home security professional speaking with a homeowner at a gate.",
+    ];
+    if (path.endsWith(".cardAlt")) return index === 4
+      ? "A Black home driver standing beside a family car in Kigali."
+      : null;
+    return detail[index] || null;
+  }
+  return ({
+    "howItWorks.imageAlt": "A family, service coordinator and employee reviewing the stages of a home visit together.",
+    "servicesPage.imageAlt": "A family, service coordinator and employee reviewing the stages of a home visit together.",
+    "about.imageAlt": "A service coordinator discussing home support with a family in Kigali.",
+    "booking.imageAlt": "A family and home support professional reviewing a planned service.",
+    "provider.imageAlt": "A home support employee preparing a visit checklist.",
+    "contact.imageAlt": "A home support coordinator welcoming a family at their home.",
+    "faq.imageAlt": "A family discussing practical home support with a care professional.",
+  })[path] || null;
+}
 function mergeValue(base, saved, path = "") {
   if (saved === undefined || saved === null) return structuredClone(base);
   if (Array.isArray(base))
@@ -32,6 +91,16 @@ function mergeValue(base, saved, path = "") {
           ),
       );
     }
+    else if (path === "howItWorks.steps")
+      return Array.from(
+        { length: Math.max(base.length, saved.length) },
+        (_, index) =>
+          mergeValue(
+            base[index] ?? base[base.length - 1],
+            saved[index],
+            `${path}.${index}`,
+          ),
+      );
     else return structuredClone(saved);
   if (base && typeof base === "object")
     return Object.fromEntries(
@@ -58,6 +127,16 @@ function migratePublishedCopy(value, path = "") {
   if (typeof value === "string" && migration?.from === value)
     return migration.to;
   if (typeof value !== "string") return value;
+  if (/^Illustrative scene of a home (?:care worker|driver)|^Illustrative Kigali home-care image|^An illustrative home-care moment/.test(value)) {
+    const replacementAlt = altForSavedPath(path);
+    if (replacementAlt) return replacementAlt;
+  }
+  const replacementImage = imageForSavedPath(path, value);
+  if (replacementImage) return replacementImage;
+  if (formerHomePhotos.has(value)) {
+    const replacementAlt = altForSavedPath(path);
+    if (replacementAlt) return replacementAlt;
+  }
   if (value === "/images/kigali-home-care.webp" || value === "/images/rwanda-home.jpg")
     return "/images/community-care.jpg";
   if (value === "/images/home-driver.webp")
@@ -76,11 +155,11 @@ export function mergeSiteContent(base, saved) {
   if (!saved || typeof saved !== "object" || saved.version !== 2)
     return structuredClone(base);
   const result = mergeValue(base, saved);
-  result.services = base.services.map((service) =>
+  result.services = base.services.map((service, index) =>
     mergeValue(
       service,
       saved.services?.find((s) => s.id === service.id),
-      `services.${service.id}`,
+      `services.${index}`,
     ),
   );
   return migratePublishedCopy(result);
